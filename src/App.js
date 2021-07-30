@@ -11,9 +11,7 @@ function App() {
   return (
     <div >
       {/* <ChooseBets></ChooseBets> */}
-      <FighterCards>
-        <Cards></Cards>
-      </FighterCards>
+      <Cards></Cards>
       {/* <ChooseFighter></ChooseFighter>
       <Fight></Fight>
       <Login></Login>
