@@ -9,10 +9,6 @@ const typeDefs = gql`
     balance: Number
   }
 
-  type Checkout {
-    session: ID
-  }
-
   type Auth {
     token: ID
     user: User
@@ -23,17 +19,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(
-      firstName: String!
-      lastName: String!
-      email: String!
-      password: String!
-    ): Auth
+    addUser(username: String!, password: String!, email: String!): Auth
     updateUser(
-      firstName: String
-      lastName: String
+      username: String
       email: String
       password: String
+      balance: Number
     ): User
     login(email: String!, password: String!): Auth
   }
