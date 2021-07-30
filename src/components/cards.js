@@ -8,13 +8,13 @@ function Cards () {
                 fighterName="Timmy Turner"
                 // image="placeholder"
                 // alt="Picture of fighter"
-                quote="I'll chop your head off!!"
+                quote="Stats"
                 >
             </FighterCards>
 
             <FighterCards
                 fighterName="Someone Else"
-                quote="I am an enemy!"
+                quote="Stats"
                 >
             </FighterCards>
         </div>
