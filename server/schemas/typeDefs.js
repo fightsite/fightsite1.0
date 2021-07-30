@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     password: String
     email: String
-    balance: Number
+    balance: Int
   }
 
   type Auth {
@@ -24,7 +24,7 @@ const typeDefs = gql`
       username: String
       email: String
       password: String
-      balance: Number
+      balance: Int
     ): User
     login(email: String!, password: String!): Auth
   }
