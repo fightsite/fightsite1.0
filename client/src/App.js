@@ -5,6 +5,7 @@ import ChooseFighter from './components/choose-fighter';
 import Fight from './components/fight';
 import Login from './components/login';
 import Results from './components/results';
+<<<<<<< HEAD:client/src/App.js
 import Header from './components/header';
 import Footer from './components/footer';
 import './index.css';
@@ -21,6 +22,19 @@ function App() {
       <Login></Login>
       <Results></Results>
       <Footer></Footer>
+=======
+import FighterCards from './components/fightercards';
+import Cards from './components/cards';
+function App() {
+  return (
+    <div >
+      {/* <ChooseBets></ChooseBets> */}
+      <Cards></Cards>
+      {/* <ChooseFighter></ChooseFighter>
+      <Fight></Fight>
+      <Login></Login>
+      <Results></Results> */}
+>>>>>>> feature/fighters:src/App.js
     </div>
   );
 }
