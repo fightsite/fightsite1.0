@@ -5,14 +5,22 @@ import ChooseFighter from './components/choose-fighter';
 import Fight from './components/fight';
 import Login from './components/login';
 import Results from './components/results';
+import Header from './components/header';
+import Footer from './components/footer';
+import './index.css';
+
+
+
 function App() {
   return (
-    <div >
+    <div className="flex-project">
+      <Header></Header>
       <ChooseBets></ChooseBets>
       <ChooseFighter></ChooseFighter>
       <Fight></Fight>
       <Login></Login>
       <Results></Results>
+      <Footer></Footer>
     </div>
   );
 }
