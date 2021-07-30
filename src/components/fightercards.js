@@ -11,10 +11,12 @@ function fighterCards( props ) {
 
         <div className="card-parent-div">
             <div className="card">
-                {/* <img src="img_avatar.png" alt="Avatar" style="width:100%"></img> */}
                 <div className="container">
-                    <h4><b>{ props.fighterName }</b></h4>
-                    <p>{ props.quote }</p>
+                    {/* Name and stats of fighter on card */}
+                    <h2><b>{ props.fighterName }</b></h2>
+                    <p>{ props.strength }</p>
+                    <p>{ props.speed }</p>
+                    <p>{ props.weight }</p>
                 </div>
             </div>
         </div>
