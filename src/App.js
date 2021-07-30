@@ -5,14 +5,19 @@ import ChooseFighter from './components/choose-fighter';
 import Fight from './components/fight';
 import Login from './components/login';
 import Results from './components/results';
+import FighterCards from './components/fightercards';
+import Cards from './components/cards';
 function App() {
   return (
     <div >
-      <ChooseBets></ChooseBets>
-      <ChooseFighter></ChooseFighter>
+      {/* <ChooseBets></ChooseBets> */}
+      <FighterCards>
+        <Cards></Cards>
+      </FighterCards>
+      {/* <ChooseFighter></ChooseFighter>
       <Fight></Fight>
       <Login></Login>
-      <Results></Results>
+      <Results></Results> */}
     </div>
   );
 }
