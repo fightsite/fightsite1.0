@@ -8,6 +8,7 @@ import Results from './components/results';
 <<<<<<< HEAD:client/src/App.js
 import Header from './components/header';
 import Footer from './components/footer';
+import Animation from './components/animation';
 import './index.css';
 
 
@@ -16,11 +17,7 @@ function App() {
   return (
     <div className="flex-project">
       <Header></Header>
-      <ChooseBets></ChooseBets>
-      <ChooseFighter></ChooseFighter>
-      <Fight></Fight>
-      <Login></Login>
-      <Results></Results>
+      <Animation></Animation>
       <Footer></Footer>
 =======
 import FighterCards from './components/fightercards';
