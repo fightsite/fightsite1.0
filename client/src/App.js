@@ -7,6 +7,7 @@ import Login from './components/login';
 import Results from './components/results';
 import Header from './components/header';
 import Footer from './components/footer';
+import Animation from './components/animation';
 import './index.css';
 
 
@@ -15,11 +16,7 @@ function App() {
   return (
     <div className="flex-project">
       <Header></Header>
-      <ChooseBets></ChooseBets>
-      <ChooseFighter></ChooseFighter>
-      <Fight></Fight>
-      <Login></Login>
-      <Results></Results>
+      <Animation></Animation>
       <Footer></Footer>
     </div>
   );

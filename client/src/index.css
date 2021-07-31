@@ -24,6 +24,7 @@ code {
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #fefefe;
 }
 
 /*Header*/
@@ -33,6 +34,9 @@ code {
  flex-wrap: wrap;
  flex-direction: row;
  justify-content: space-evenly;
+ align-items: center;
+ padding-top: .7rem;
+ padding-bottom: .8rem;
  }
 
 
@@ -40,14 +44,15 @@ code {
   font-size: 50px;
 }
 
-
 .user-info-inside {
- margin: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .user-button button {
   margin-left: 35px;
-  margin-top: 25px;
   margin-right: 35px;
   padding: 15px;
   border-radius: 15px;
@@ -66,6 +71,92 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+/*Animation*/
+
+.animation-div {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.animation-div div {
+  margin-right: 1px;
+  margin-left: 1px;
+}
+
+@keyframes FadeIn {
+  0% {opacity:1;}
+  25% {opacity:.75;}
+  50% {opacity:.5;}
+  100% {opacity:0;}
+}
+@keyframes GrowBam {
+  0% {font-size: 50px; opacity: 0%;}
+  25% {font-size: 150px; opacity: 100%;}
+  50% {font-size: 50px; opacity: 0%;}
+  75% {font-size: 50px; opacity: 0%;}
+  100% {font-size: 50px; opacity: 0%;}
+}
+@keyframes GrowThomp {
+  0% {font-size: 50px;  opacity: 0%;}
+  25% {font-size: 50px; opacity: 0%;}
+  50% {font-size: 150px; opacity: 100%;}
+  75% {font-size: 50px; opacity: 0%;}
+  100% {font-size: 50px; opacity: 0%;}
+}
+@keyframes GrowPow {
+  0% {font-size: 50px; opacity: 50%;}
+  25% {font-size: 50px; opacity: 0%;}
+  50% {font-size: 50px; opacity: 0%;}
+  75% {font-size: 50px; opacity: 0%;}
+  100% {font-size: 150px;}
+}
+
+.bam, .thomp, .pow {
+    font-size: 50px;
+    animation-name: FadeIn;
+    animation-timing-function:step-start;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+
+}
+.bam {
+  background: url(./assets/explode.02.png);
+  background-repeat: no-repeat;
+  background-size: 100% 120%;
+  background-position: center;
+  font-family: 'Bangers', cursive;
+  animation-name: GrowBam;
+  animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+.thomp {
+  background: url(./assets/explode.02.png);
+  background-repeat: no-repeat;
+  background-size:100% 120%;
+  background-position: center;
+  font-family: 'Bangers', cursive;
+  animation-name: GrowThomp;
+  animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+.pow {
+  background: url(./assets/explode.02.png);
+  background-repeat: no-repeat;
+  background-size: 100% 120%;
+  background-position: center;
+  font-family: 'Bangers', cursive;
+  animation-name: GrowPow;
+  animation-timing-function:ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
 }
 
 /* for phone screens */
