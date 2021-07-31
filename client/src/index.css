@@ -61,6 +61,11 @@ code {
   color:#080808;
 }
 
+.user-button button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
 /*Footer*/
 
 .footer-div{
@@ -157,6 +162,53 @@ code {
   animation-timing-function:ease-in-out;
     animation-iteration-count: infinite;
     animation-duration: 3s;
+}
+
+/* fightercards.js experiment */
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  /* makes sure the cards stay the same shape with longer names */
+  width: 300px;
+  margin: 25px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.card-parent-div {
+  margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 20px 20px 20px;
+}
+
+.container {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #070101;
+  margin-top: 10px;
+}
+
+.fighter-div {
+  margin: 105px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 /* for phone screens */

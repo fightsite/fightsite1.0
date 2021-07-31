@@ -40,7 +40,7 @@ function Cards () {
                 fighterName="Jonah Hill"
                 strength="Str: 3"
                 speed="Spd: .01"
-                weight="Wgt: 652 lbs"
+                weight="Wgt: 352 lbs"
                 >
             </FighterCards>
 
@@ -48,7 +48,7 @@ function Cards () {
                 fighterName="Carrie Underwood"
                 strength="Str: 12"
                 speed="Spd: 75"
-                weight="Wgt: 16 lbs"
+                weight="Wgt: 136 lbs"
                 >
             </FighterCards>
 
@@ -72,7 +72,7 @@ function Cards () {
                 fighterName="Burt Reynolds"
                 strength="Str: 8000"
                 speed="Spd: 8000"
-                weight="Wgt: 25 lbs"
+                weight="Wgt: 225 lbs"
                 >
             </FighterCards>
 
@@ -96,7 +96,7 @@ function Cards () {
                 fighterName="Bob the Builder"
                 strength="Str: 80"
                 speed="Spd: 15"
-                weight="Wgt: 6 lbs"
+                weight="Wgt: 76 lbs"
                 >
             </FighterCards>
 
@@ -112,7 +112,7 @@ function Cards () {
                 fighterName="Master Chief"
                 strength="Str: 250"
                 speed="Spd: 50"
-                weight="Wgt: 205 lbs"
+                weight="Wgt: 605 lbs"
                 >
             </FighterCards>
 
@@ -136,7 +136,7 @@ function Cards () {
                 fighterName="Nathan Drake"
                 strength="Str: 100"
                 speed="Spd: 100"
-                weight="Wgt: 150 lbs"
+                weight="Wgt: 210 lbs"
                 >
             </FighterCards>
 

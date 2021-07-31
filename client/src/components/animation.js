@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '../assets/explode.02.png';
+
 
 function Animation(){
     return (
