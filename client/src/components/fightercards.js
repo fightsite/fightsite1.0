@@ -3,16 +3,13 @@ import CSS from "../../src/index.css";
 
 function fighterCards( props ) {
     return (
-        // <div className="fight-card">
-        //     <h2>{ card.fighterName }</h2>
-        //     <a href="#">link</a>
-        // </div>
-
-
         <div className="card-parent-div">
             <div className="card">
                 <div className="container">
                     {/* Name and stats of fighter on card */}
+                    <div>
+                        <img className="charPicture" src={ props.charPicture } alt="Picture of selected fighter."/>
+                    </div>
                     <h2><b>{ props.fighterName }</b></h2>
                     <p>{ props.strength }</p>
                     <p>{ props.speed }</p>
@@ -20,9 +17,6 @@ function fighterCards( props ) {
                 </div>
             </div>
         </div>
-
-
-
     )
 };
 

@@ -172,7 +172,11 @@ code {
   transition: 0.3s;
   /* makes sure the cards stay the same shape with longer names */
   width: 300px;
+  height: auto;
   margin: 25px;
+  border: 10px;
+  border-width: 3px;
+  border-style: solid;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -184,6 +188,18 @@ code {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+}
+
+.charPicture {
+  background: url(./assets/timmyturner.png);
+}
+
+.container h2 {
+  padding-bottom: 15px;
+}
+
+.container p {
+  padding-bottom: 10px;
 }
 
 .card-parent-div {
@@ -211,6 +227,97 @@ code {
   align-items: center;
 }
 
+/* sign-in style start */
+.login-main-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signIn-form-main-container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 10px;
+  border-style: solid;
+  border-width: 3px;
+  width: 41%;
+  border-radius: 10px;
+  background-color: #46acc2;
+  margin-top: 40px;
+}
+
+.signIn-form-main-container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 10px;
+  border-style: solid;
+  border-width: 3px;
+  width: 41%;
+  border-radius: 10px;
+  background-color: #46acc2;
+  margin-bottom: 40px;
+}
+
+.form-title {
+  margin: 15px;
+}
+
+.form-title h2 {
+  text-align: center;
+}
+
+.form b {
+  padding-right: 10px;
+}
+
+.form input {
+  border-radius: 4px;
+  width: 100%
+}
+
+.form-info {
+  width: 60%
+}
+
+.form span {
+  display: block;
+  overflow: hidden;
+  padding: 0 5px 0 0;
+}
+
+.btn-div {
+  display: flex;
+    justify-content: center;
+    margin: 21px;
+}
+
+.signIn-btns {
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+
+.divider-message {
+  text-align: center;
+}
+
+@media only screen and (max-width: 425px){
+  .signIn-form-main-container1 {
+    width:80%;
+  }
+  .signIn-form-main-container2 {
+    width: 80%;
+  }
+}
+
 /* for phone screens */
 @media screen and (max-width: 700px) {
   .header-div {
@@ -220,5 +327,31 @@ code {
   }
   .user-button button {
     margin-bottom: 25px;
+  }
+  .signIn-form-main-container1 {
+    width:80%;
+  }
+  .signIn-form-main-container2 {
+    width: 80%;
+  }
+}
+
+/* large phones and tablets */
+@media only screen and (max-width: 1200px){
+  .signIn-form-main-container1 {
+    width:70%;
+  }
+  .signIn-form-main-container2 {
+    width: 70%;
+  }
+}
+
+/* Monitor size + */
+@media only screen and (max-width: 1500px){
+  .signIn-form-main-container1 {
+    width:60%;
+  }
+  .signIn-form-main-container2 {
+    width: 60%;
   }
 }
