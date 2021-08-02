@@ -1,6 +1,6 @@
 import React from 'react';
 
-function signIn () {
+function SignIn () {
     return (
     <main className="login-main-div">  
         <section className="signIn-form-main-container1">
@@ -46,4 +46,4 @@ function signIn () {
     )
 };
 
-export default signIn;
+export default SignIn;

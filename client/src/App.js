@@ -11,21 +11,23 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Animation from './components/animation';
 import SignIn from './components/sign-in';
+import HomePage from './pages/homepage';
 
 function App() {
   return (
-    <div className='flex-project'>
-      <Header></Header>
-      <SignIn></SignIn>
-      {/* <ChooseBets></ChooseBets> */}
-      {/* <ChooseFighter></ChooseFighter> */}
-      {/* <ChooseFighter></ChooseFighter>
-      <Fight></Fight>
-      <Login></Login>
-      <Results></Results> */}
-      <Footer></Footer>
-    </div>
-  );
+    // <div className='flex-project'>
+    //   <Header></Header>
+    //   <SignIn></SignIn>
+    //   {/* <ChooseBets></ChooseBets> */}
+    //   {/* <ChooseFighter></ChooseFighter> */}
+    //   {/* <ChooseFighter></ChooseFighter>
+    //   <Fight></Fight>
+    //   <Login></Login>
+    //   <Results></Results> */}
+    //   <Footer></Footer>
+    // </div>
+    <HomePage></HomePage>
+  )
 }
 
 export default App;

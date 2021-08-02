@@ -9,13 +9,14 @@ import Cards from '../components/cards';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Animation from '../components/animation';
+import SignIn from '../components/sign-in';
 
 function HomePage() {
 return (
     <div className='flex-project'>
         <Header></Header>
+        <SignIn></SignIn>
         {/* <ChooseBets></ChooseBets> */}
-        <ChooseFighter></ChooseFighter>
         {/* <ChooseFighter></ChooseFighter>
         <Fight></Fight>
         <Login></Login>
