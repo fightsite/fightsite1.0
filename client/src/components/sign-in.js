@@ -4,7 +4,7 @@ import Login from './login';
 function SignIn ({ LogIn, signUp, error }) {
     
     const [userInfo, setUserInfo] = useState({email: "", password: ""});
-    const [newUser, setNewUser] = useState({ email: "", password: ""});
+    const [newUser, setNewUser] = useState({ username: "", email: "", password: ""});
 
     const existingLoginHandler = e => {
         e.preventDefault();
@@ -47,10 +47,9 @@ function SignIn ({ LogIn, signUp, error }) {
             </div>
             <div className="form-info">
 
-
-                <form className="form">
+                <form onSubmit={newUserSignup} className="form">
                 <label for="username"><b className="pass-title">Create Username:</b></label>
-                    <span><input type="password" placeholder="Enter username" name="username" required/></span>
+                    <span><input type="password" placeholder="Enter username" name="username" onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} required/></span>
 
 
                     <label for="email"><b>Email:</b></label>
