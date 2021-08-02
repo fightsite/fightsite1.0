@@ -172,6 +172,7 @@ code {
   transition: 0.3s;
   /* makes sure the cards stay the same shape with longer names */
   width: 300px;
+  height: auto;
   margin: 25px;
 }
 
@@ -184,6 +185,14 @@ code {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+}
+
+.container h2 {
+  padding-bottom: 15px;
+}
+
+.container p {
+  padding-bottom: 10px;
 }
 
 .card-parent-div {
