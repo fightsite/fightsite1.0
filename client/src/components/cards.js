@@ -1,10 +1,12 @@
 import React from 'react';
 import FighterCards from './fightercards';
+import TimmyTurner from '../../src/assets/timmyturner.png';
 
 function Cards () {
     return (
         <div className="fighter-div">
             <FighterCards
+                charPicture={ TimmyTurner }
                 fighterName="Timmy Turner"
                 strength="Str: 10"
                 speed="Spd: 18"
