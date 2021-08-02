@@ -11,10 +11,11 @@ function signIn () {
                     <label for="email"><b>Email:</b></label>
                     <input type="text" placeholder="Enter email" name="email" required/>
 
-                    <label for="password"><b>Password:</b></label>
+                    <label for="password"><b className="pass-title">Password:</b></label>
                     <input type="password" placeholder="Enter password" name="password" required/>
-
-                    <button type="submit">Create Account</button>
+                    <div className="btn-div">
+                        <button type="submit">Create Account</button>
+                    </div>
                 </form>
             </div>
         </section>
