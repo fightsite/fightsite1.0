@@ -46,7 +46,13 @@ function SignIn ({ LogIn, signUp, error }) {
                 <h2>Sign up with us now!</h2>
             </div>
             <div className="form-info">
-                <form onSubmit={newUserSignup} className="form">
+
+
+                <form className="form">
+                <label for="username"><b className="pass-title">Create Username:</b></label>
+                    <span><input type="password" placeholder="Enter username" name="username" required/></span>
+
+
                     <label for="email"><b>Email:</b></label>
                     <span><input type="text" placeholder="Enter email" name="email" onChange={e => setNewUser({...newUser, email: e.target.value})}  value={newUser.email} required/></span>
 
