@@ -1,10 +1,11 @@
 import React from 'react';
 // import fighterCards from './fightercards';
 import timmyTurner from '../assets/timmyturner.png';
-import morganFreeman from '../../src/assets/morganfreeman.png.jpg';
+import morganFreeman from '../assets/morganfreeman.png.jpg';
 
 function ChooseFighter(){
 
+    // const TimmyTurner = require('../../src/assets/timmyturner.png')
     
 const fighterCards = [
     {
@@ -123,19 +124,24 @@ const fighterCards = [
 
 
     return (
-        <div className="card-parent-div">
-            { fighterCards.map((i) => (
-                <div className="card">
-                    <div className="container">
-                        <img className="charImage" src={ i.charImage } alt={ i.alt }/>
-                        <h2><b>{ i.fighterName }</b></h2>
-                        <p>{ i.strength }</p>
-                        <p>{ i.speed }</p>
-                        <p>{ i.weight }</p>
+        <section>
+            <div className="choose-fighter-title">
+                <h2>Choose your fighter:</h2>
+            </div>
+            <div className="card-parent-div">
+                { fighterCards.map((i) => (
+                    <div className="card">
+                        <div className="container">
+                            <img className="charImage" src={ i.charImage } alt={ i.alt }/>
+                            <h2><b>{ i.fighterName }</b></h2>
+                            <p>{ i.strength }</p>
+                            <p>{ i.speed }</p>
+                            <p>{ i.weight }</p>
+                        </div>
                     </div>
-                </div>
-                ))}
-        </div>
+                    ))}
+            </div>
+        </section>    
     )
 
 
