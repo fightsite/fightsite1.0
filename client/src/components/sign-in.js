@@ -2,7 +2,7 @@ import React from 'react';
 
 function signIn () {
     return (
-    <main>  
+    <main className="login-div">  
         <section className="signIn-form-main-container1">
             <div className="form-title">
                 <h2>Sign in to start the fights!</h2>
@@ -21,9 +21,7 @@ function signIn () {
             </div>
         </section>
         <section className="divider">
-            <div>
-                <h2>Don't have an account? No Problem!</h2>
-            </div>
+            <h2>Don't have an account? No Problem!</h2>
         </section>
         <section className="signIn-form-main-container2">
             <div className="form-title">
