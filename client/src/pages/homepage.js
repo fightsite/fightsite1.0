@@ -23,6 +23,7 @@ function HomePage() {
     const login = userInfo => {
         console.log(userInfo);
         if(userInfo.email === admin.email && userInfo.password === admin.password) {
+            setUser({ email: userInfo.email });
             console.log('you made it');
         }
         else {
@@ -35,13 +36,13 @@ function HomePage() {
     }
 
     const createUser = (details) => {
-        console.log(details);
+        
 
     }
 return (
     <div className='flex-project'>
         <Header></Header>
-        {(user.email = "") ? (
+        {(user.email != "") ? (
            <Animation></Animation>
         ) : (
             <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
