@@ -227,6 +227,27 @@ code {
   align-items: center;
 }
 
+/* sign-in style start */
+.signIn-form-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  margin: 15px;
+}
+
+.form b {
+  padding-right: 10px;
+}
+
+.form input {
+  padding-right: 10px;
+}
+
+
+
 /* for phone screens */
 @media screen and (max-width: 700px) {
   .header-div {
