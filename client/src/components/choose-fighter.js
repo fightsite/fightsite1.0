@@ -1,17 +1,23 @@
 import React from 'react';
-
+// import fighterCards from './fightercards';
+import timmyTurner from '../assets/timmyturner.png';
+import morganFreeman from '../../src/assets/morganfreeman.png.jpg';
 
 function ChooseFighter(){
 
     
 const fighterCards = [
     {
+        charImage:{ timmyTurner },
+        alt:"Picture of Timmy Turner.",
         fighterName:"Timmy Turner",
         strength:"Str: 10",
         speed:"Spd: 18",
         weight:"Wgt: 31 lbs" 
     },
     {
+        charImage:{ morganFreeman },
+        alt:"Picture of Morgan Freeman.",
         fighterName:"Morgan Freeman",
         strength:"Str: 14",
         speed:"Spd: 9",
@@ -121,6 +127,7 @@ const fighterCards = [
             { fighterCards.map((i) => (
                 <div className="card">
                     <div className="container">
+                        <img className="charImage" src={ i.charImage } alt={ i.alt }/>
                         <h2><b>{ i.fighterName }</b></h2>
                         <p>{ i.strength }</p>
                         <p>{ i.speed }</p>

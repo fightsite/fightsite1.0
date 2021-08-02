@@ -345,3 +345,9 @@ code {
     width: 80%;
   }
 }
+
+/* character images style start */
+.charImage {
+  height: 100px;
+  width: 265px;
+}
