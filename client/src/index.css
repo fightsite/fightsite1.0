@@ -264,6 +264,10 @@ code {
   margin: 15px;
 }
 
+.form-title h2 {
+  text-align: center;
+}
+
 .form b {
   padding-right: 10px;
 }
@@ -301,6 +305,19 @@ code {
   margin-bottom: 21px;
 }
 
+.divider-message {
+  text-align: center;
+}
+
+@media only screen and (max-width: 425px){
+  .signIn-form-main-container1 {
+    width:80%;
+  }
+  .signIn-form-main-container2 {
+    width: 80%;
+  }
+}
+
 /* for phone screens */
 @media screen and (max-width: 700px) {
   .header-div {
@@ -310,5 +327,31 @@ code {
   }
   .user-button button {
     margin-bottom: 25px;
+  }
+  .signIn-form-main-container1 {
+    width:80%;
+  }
+  .signIn-form-main-container2 {
+    width: 80%;
+  }
+}
+
+/* large phones and tablets */
+@media only screen and (max-width: 1200px){
+  .signIn-form-main-container1 {
+    width:70%;
+  }
+  .signIn-form-main-container2 {
+    width: 70%;
+  }
+}
+
+/* Monitor size + */
+@media only screen and (max-width: 1500px){
+  .signIn-form-main-container1 {
+    width:60%;
+  }
+  .signIn-form-main-container2 {
+    width: 60%;
   }
 }
