@@ -28,42 +28,61 @@ code {
 }
 
 /*Header*/
+
 .header-div {
  background-color: #46acc2;
  display: flex;
  flex-wrap: wrap;
  flex-direction: row;
- justify-content: space-evenly;
+ justify-content: space-around;
  align-items: center;
  padding-top: .7rem;
  padding-bottom: .8rem;
  }
-
-
 .header-inside h1 {
-  font-size: 50px;
+  font-size: 70px;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  color: #fefefe;
+  
 }
-
 .user-info-inside {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  color: #fefefe;
 }
-
+.user-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .user-button button {
-  margin-left: 35px;
-  margin-right: 35px;
-  padding: 15px;
+  margin-left: 80px;
+  padding: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
   border-radius: 15px;
   border: none;
   outline: none;
-  color:#080808;
+  color: #fefefe;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  letter-spacing: 6px;
+  background-color: #a4abb3;
 }
-
 .user-button button:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
   cursor: pointer;
+}
+.user-button button:active {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+  transform: scale(0.95) translateY(2px);
 }
 
 /*Footer*/
@@ -76,6 +95,12 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  color: #fefefe;
+  font-size: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /*Animation*/
@@ -86,14 +111,11 @@ code {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  
 }
-
 .animation-div div {
   margin-right: 1px;
   margin-left: 1px;
 }
-
 @keyframes FadeIn {
   0% {opacity:1;}
   25% {opacity:.75;}
@@ -128,7 +150,6 @@ code {
     animation-timing-function:step-start;
     animation-iteration-count: infinite;
     animation-duration: 4s;
-
 }
 .bam {
   background: url(./assets/explode.02.png);
@@ -162,6 +183,113 @@ code {
   animation-timing-function:ease-in-out;
     animation-iteration-count: infinite;
     animation-duration: 3s;
+}
+
+/*Fighter Poster that shows the fight*/
+@keyframes GrowPoster {
+  from {
+    transform: scale(0) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(359deg);
+  }
+}
+
+.poster-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.poster {
+  animation: GrowPoster 4s;
+  animation-iteration-count:1;
+  background-image: url(./assets/annie-spratt-xvU-X0GV9-o-unsplash.jpg);
+  border-radius: 1%;
+  width: 28%;
+  height: 750px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+.poster-top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+.poster-top h2{
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  word-spacing: 4px;
+  font-family: 'Dela Gothic One', cursive;
+}
+.poster-exclusive {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.poster-exclusive span {
+  background-color: #972D07;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  border-radius: 40%;
+  margin-top: 30px;
+  margin-left: 25px;
+  height: 170px;
+  font-size: 26px;
+  font-family: 'Dela Gothic One', cursive;
+  text-align: center;
+}
+.poster-exclusive h3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 32px;
+  font-family: 'Dekko', cursive;
+}
+.poster-fighters {
+  border-style:double;
+  border-width: 15px;
+  border-color: #972D07;
+  width: 80%;
+  height: 250px;
+  margin-top: 30px;
+  margin-left: 50px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.poster-fighters h3 {
+  margin-top: 25px;
+  font-size: 36px;
+  font-family: 'Dela Gothic One', cursive;
+}
+.poster-bet {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 140px;
+}
+.poster-bet h3 {
+  font-size: 38px;
+  font-family: 'Dekko', cursive;
+}
+.poster-bet input {
+  background-color: #972D07;
+  height: 40px;
+  width: 70px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border: 1px solid var(--dark);
+  outline: none;
+  border-radius: 6px;
+  transition: box-shadow 0.4s;
 }
 
 /* fightercards.js experiment */
@@ -299,6 +427,16 @@ code {
   padding: 4px;
 }
 
+.signIn-btns:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+.signIn-btns:active {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+  transform: scale(0.95) translateY(2px);
+}
+
 .divider {
   display: flex;
   justify-content: center;
@@ -310,6 +448,101 @@ code {
   text-align: center;
 }
 
+/*results page*/
+
+.results {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@keyframes Fade {
+  0% {opacity:100}
+  50% {opacity: 0;}
+  100% {opacity:100;}
+}
+.quip h2 {
+  font-size: 60px;
+  font-family: 'Bangers';
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+
+.win-or-lose h2{
+ font-size: 100px;
+ font-family: 'Dela Gothic One', cursive;
+ animation: Fade;
+  animation-timing-function:step-start;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+.money h2{
+ font-size: 60px;
+ font-family: 'Bangers';
+ letter-spacing: 2px;
+  word-spacing: 2px;
+}
+.results-btn-holder {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+.results-btn {
+  width: 35%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color:#fefefe;
+  font-size: 30px;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  background-color: #a4abb3;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+.results-btn:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+.results-btn:active {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+  transform: scale(0.95) translateY(2px);
+}
+
+/*Media Queries*/
+
+/* Monitor size + */
+@media only screen and (max-width: 1500px){
+  .signIn-form-main-container1 {
+    width:60%;
+  }
+  .signIn-form-main-container2 {
+    width: 60%;
+  }
+  .poster {
+    width: 35%;
+  }
+}
+
+/* large phones and tablets */
+@media only screen and (max-width: 1200px){
+  .signIn-form-main-container1 {
+    width:70%;
+  }
+  .signIn-form-main-container2 {
+    width: 70%;
+
+  }
+}
+
 /* large phones and tablets */
 @media only screen and (max-width: 1200px){
   .signIn-form-main-container1 {
@@ -318,17 +551,17 @@ code {
   .signIn-form-main-container2 {
     width: 70%;
   }
+  .poster {
+    width: 45%;
+  }
 }
-
 /* for phone screens */
 @media screen and (max-width: 700px) {
-  .header-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .header-inside h1 {
+    font-size: 40px;
   }
-  .user-button button {
-    margin-bottom: 25px;
+  .user-info-inside h2 {
+    font-size: 20px;
   }
   .signIn-form-main-container1 {
     width:80%;
@@ -336,8 +569,24 @@ code {
   .signIn-form-main-container2 {
     width: 80%;
   }
+  .poster {
+    width: 70%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
 }
 
+@media only screen and (max-width: 600px){
+  .poster {
+    width: 90%;
+  }
+  .header-inside h1 {
+    font-size: 35px;
+  }
+  .user-info-inside h2 {
+    font-size: 16px;
+  }
+}
 @media only screen and (max-width: 425px){
   .signIn-form-main-container1 {
     width:80%;
@@ -345,6 +594,7 @@ code {
   .signIn-form-main-container2 {
     width: 80%;
   }
+
 }
 
 /* character images style start */
@@ -360,4 +610,9 @@ code {
   padding-top: 36px;
   font-size: 23px;
   font-style: italic;
+
+  .poster {
+    width: 100%;
+  }
+
 }
