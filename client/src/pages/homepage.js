@@ -33,6 +33,7 @@ function HomePage({}) {
     }
     const getFighter = fighterInfo => {
         console.log(fighterInfo);
+        setCurrentFighter({name: fighterInfo});
     }
     const logout = () => {
         console.log("logout");
@@ -50,9 +51,11 @@ return (
 
         {(user.email != "") ? (
            <ChooseFighter getFighter={getFighter}></ChooseFighter>
-        ) : (
-            <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
-            
+        ) : (user.email != "" && currentFighter != "") ? (
+            <Fight></Fight>
+            ) : (
+                <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
+                
         )}
         {/* {(user.email && currentFighter.name)} */}
         
@@ -66,7 +69,7 @@ return (
         <Footer></Footer>
   </div>
 )
-    
+   
 }
 
 export default HomePage;
