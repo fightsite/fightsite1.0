@@ -28,6 +28,7 @@ code {
 }
 
 /*Header*/
+
 .header-div {
  background-color: #46acc2;
  display: flex;
@@ -38,12 +39,9 @@ code {
  padding-top: .7rem;
  padding-bottom: .8rem;
  }
-
-
 .header-inside h1 {
   font-size: 50px;
 }
-
 .user-info-inside {
   height: 100%;
   display: flex;
@@ -66,7 +64,6 @@ code {
   outline: none;
   color:#080808;
 }
-
 .user-button button:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
   cursor: pointer;
@@ -92,14 +89,11 @@ code {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  
 }
-
 .animation-div div {
   margin-right: 1px;
   margin-left: 1px;
 }
-
 @keyframes FadeIn {
   0% {opacity:1;}
   25% {opacity:.75;}
@@ -134,7 +128,6 @@ code {
     animation-timing-function:step-start;
     animation-iteration-count: infinite;
     animation-duration: 4s;
-
 }
 .bam {
   background: url(./assets/explode.02.png);
@@ -180,9 +173,7 @@ code {
   }
 }
 
-
 .poster-holder {
-  
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -196,13 +187,11 @@ code {
   height: 750px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
 }
-
 .poster-top {
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 }
-
 .poster-top h2{
   width: 100%;
   text-align: center;
@@ -210,13 +199,11 @@ code {
   word-spacing: 4px;
   font-family: 'Dela Gothic One', cursive;
 }
-
 .poster-exclusive {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-
 .poster-exclusive span {
   background-color: #972D07;
   display: flex;
@@ -229,9 +216,7 @@ code {
   font-size: 26px;
   font-family: 'Dela Gothic One', cursive;
   text-align: center;
-  
 }
-
 .poster-exclusive h3 {
   display: flex;
   flex-direction: column;
@@ -240,9 +225,7 @@ code {
   margin-top: 30px;
   font-size: 32px;
   font-family: 'Dekko', cursive;
-
 }
-
 .poster-fighters {
   border-style:double;
   border-width: 15px;
@@ -262,7 +245,6 @@ code {
   font-size: 36px;
   font-family: 'Dela Gothic One', cursive;
 }
-
 .poster-bet {
   display: flex;
   flex-direction: row;
@@ -272,13 +254,10 @@ code {
   width: 100%;
   height: 140px;
 }
-
 .poster-bet h3 {
   font-size: 38px;
   font-family: 'Dekko', cursive;
-
 }
-
 .poster-bet input {
   background-color: #972D07;
   height: 40px;
@@ -290,30 +269,6 @@ code {
   border-radius: 6px;
   transition: box-shadow 0.4s;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* fightercards.js experiment */
 
@@ -472,6 +427,15 @@ code {
   }
   .poster {
     width: 35%;
+
+/* large phones and tablets */
+@media only screen and (max-width: 1200px){
+  .signIn-form-main-container1 {
+    width:70%;
+  }
+  .signIn-form-main-container2 {
+    width: 70%;
+
   }
 }
 
@@ -525,96 +489,10 @@ code {
   }
   .signIn-form-main-container2 {
     width: 80%;
+
   }
   .poster {
     width: 100%;
-    
   }
 }
 
-.coin1 {
-  height: 70px;
-  width: 70px;
-}
-.coin2 {
-  height: 70px;
-  width: 70px;
-}
-.coin3 {
-  height: 70px;
-  width: 70px;
-}
-.coin4 {
-  height: 70px;
-  width: 70px;
-}
-.coin5 {
-  height: 70px;
-  width: 70px;
-}
-.coin6 {
-  height: 70px;
-  width: 70px;
-}
-.coin7 {
-  height: 70px;
-  width: 70px;
-}
-.coin8 {
-  height: 70px;
-  width: 70px;
-}
-.coin9 {
-  height: 70px;
-  width: 70px;
-}
-.coin10 {
-  height: 70px;
-  width: 70px;
-}
-.coin11 {
-  height: 70px;
-  width: 70px;
-}
-.coin12 {
-  height: 70px;
-  width: 70px;
-}
-.coin13 {
-  height: 70px;
-  width: 70px;
-}
-.coin14 {
-  height: 70px;
-  width: 70px;
-}
-.coin15 {
-  height: 70px;
-  width: 70px;
-}
-.coin16 {
-  height: 70px;
-  width: 70px;
-}
-.coin17 {
-  height: 70px;
-  width: 70px;
-}
-.coin18 {
-  height: 70px;
-  width: 70px;
-}
-.coin19 {
-  height: 70px;
-  width: 70px;
-}
-.coin20 {
-  height: 70px;
-  width: 70px;
-}
-.coin-holder {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
