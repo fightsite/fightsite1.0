@@ -40,13 +40,20 @@ code {
  padding-bottom: .8rem;
  }
 .header-inside h1 {
-  font-size: 50px;
+  font-size: 70px;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  color: #fefefe;
+  
 }
 .user-info-inside {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  color: #fefefe;
 }
 .user-button{
   display: flex;
@@ -62,11 +69,20 @@ code {
   border-radius: 15px;
   border: none;
   outline: none;
-  color:#080808;
+  color: #fefefe;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  letter-spacing: 6px;
+  background-color: #a4abb3;
 }
 .user-button button:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
   cursor: pointer;
+}
+.user-button button:active {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+  transform: scale(0.95) translateY(2px);
 }
 
 /*Footer*/
@@ -79,6 +95,12 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  color: #fefefe;
+  font-size: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 /*Animation*/
@@ -404,6 +426,16 @@ code {
   padding: 4px;
 }
 
+.signIn-btns:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+.signIn-btns:active {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+  transform: scale(0.95) translateY(2px);
+}
+
 .divider {
   display: flex;
   justify-content: center;
@@ -413,6 +445,75 @@ code {
 
 .divider-message {
   text-align: center;
+}
+
+/*results page*/
+
+.results {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@keyframes Fade {
+  0% {opacity:100}
+  50% {opacity: 0;}
+  100% {opacity:100;}
+}
+.quip h2 {
+  font-size: 60px;
+  font-family: 'Bangers';
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+
+.win-or-lose h2{
+ font-size: 100px;
+ font-family: 'Dela Gothic One', cursive;
+ animation: Fade;
+  animation-timing-function:step-start;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+.money h2{
+ font-size: 60px;
+ font-family: 'Bangers';
+ letter-spacing: 2px;
+  word-spacing: 2px;
+}
+.results-btn-holder {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+.results-btn {
+  width: 35%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color:#fefefe;
+  font-size: 30px;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  background-color: #a4abb3;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+.results-btn:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+.results-btn:active {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+  transform: scale(0.95) translateY(2px);
 }
 
 /*Media Queries*/
@@ -427,6 +528,8 @@ code {
   }
   .poster {
     width: 35%;
+  }
+}
 
 /* large phones and tablets */
 @media only screen and (max-width: 1200px){
@@ -459,7 +562,6 @@ code {
   .user-info-inside h2 {
     font-size: 20px;
   }
-  
   .signIn-form-main-container1 {
     width:80%;
   }
@@ -472,6 +574,7 @@ code {
     margin-bottom: 25px;
   }
 }
+
 @media only screen and (max-width: 600px){
   .poster {
     width: 90%;
@@ -489,10 +592,8 @@ code {
   }
   .signIn-form-main-container2 {
     width: 80%;
-
   }
   .poster {
     width: 100%;
   }
 }
-
