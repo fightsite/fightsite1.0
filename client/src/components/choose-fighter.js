@@ -20,7 +20,7 @@ import nathanDrake from '../../src/assets/nathandrake.png';
 import willFerrell from '../../src/assets/willferrell.jpg';
 import { get } from 'mongoose';
 
-function ChooseFighter({currentFighter, setCurrentFighter}){
+function ChooseFighter({currentFighter, setCurrentFighter, setRandomFighter}){
     
 
 
@@ -171,7 +171,7 @@ const fighterCards = [
         weight:"Wgt: 245 lbs"
     }
 ]
-
+    
     function handleClick(i) {
         setCurrentFighter({name: i.fighterName})
 
@@ -179,10 +179,11 @@ const fighterCards = [
 
     function randomOpponent(){
         let randomFighter = Math.floor(Math.random() * fighterCards.length);
-    let chosenOpponent = fighterCards[randomFighter].fighterName;
+        let chosenOpponent = fighterCards[randomFighter].fighterName;
+        setRandomFighter({name: chosenOpponent})
         console.log(chosenOpponent)
     }
-    randomOpponent()
+    
 
 
     return (
@@ -193,7 +194,7 @@ const fighterCards = [
             <div id="parent" className="card-parent-div">
                 { fighterCards.map((i) => (
                     <div   className="card">
-                        <div  onClick={() => {handleClick(i)}} className="container">
+                        <div  onClick={() => {handleClick(i); randomOpponent()}} className="container">
                             <img className="charImage" src={ i.charImage } alt={ i.alt }/>
                             <h2 id="fightName"><b>{ i.fighterName }</b></h2>
                             <p>{ i.strength }</p>
