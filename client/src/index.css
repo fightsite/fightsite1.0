@@ -610,9 +610,8 @@ code {
   padding-top: 36px;
   font-size: 23px;
   font-style: italic;
-
-  .poster {
+}
+.poster {
     width: 100%;
   }
 
-}

@@ -11,17 +11,18 @@ import Animation from '../components/animation';
 import SignIn from '../components/sign-in';
 import { useState } from 'react'
 
-function HomePage() {
+function HomePage({}) {
     const admin = {
         email: "pete@pete.com",
         password: 'peter'
     }
 
     const [user, setUser] = useState({email: ""});
+    const [currentFighter, setCurrentFighter] = useState({name: ""});
     const [error, setError] = useState("");
 
     const login = userInfo => {
-        console.log(userInfo);
+        
         if(userInfo.email === admin.email && userInfo.password === admin.password) {
             setUser({ email: userInfo.email });
             console.log('you made it');
@@ -30,7 +31,10 @@ function HomePage() {
             console.log('idiot');
         }
     }
-
+    const getFighter = fighterInfo => {
+        console.log(fighterInfo);
+        setCurrentFighter({name: fighterInfo});
+    }
     const logout = () => {
         console.log("logout");
     }
@@ -46,15 +50,18 @@ return (
         {/* <SignIn></SignIn> */}
 
         {(user.email != "") ? (
-           <Animation></Animation>
-        ) : (
-            <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
-            
+           <ChooseFighter getFighter={getFighter}></ChooseFighter>
+        ) : (user.email != "" && currentFighter != "") ? (
+            <Fight></Fight>
+            ) : (
+                <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
+                
         )}
+        {/* {(user.email && currentFighter.name)} */}
         
 
         {/* <ChooseBets></ChooseBets> */}
-        <ChooseFighter></ChooseFighter>
+        
         {/* <FighterCards></FighterCards> */}
         {/* <Fight></Fight> */}
         {/* <Login></Login> */}
@@ -62,7 +69,7 @@ return (
         <Footer></Footer>
   </div>
 )
-    
+   
 }
 
 export default HomePage;

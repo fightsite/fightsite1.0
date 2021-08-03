@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import fighterCards from './fightercards';
 import timmyTurner from '../../src/assets/timmyturner.png';
 import morganFreeman from '../../src/assets/morganfreeman.png.jpg';
@@ -18,8 +18,12 @@ import littleFoot from '../../src/assets/littlefoot.jpg';
 import superman from '../../src/assets/superman.png';
 import nathanDrake from '../../src/assets/nathandrake.png';
 import willFerrell from '../../src/assets/willferrell.jpg';
+import { get } from 'mongoose';
 
-function ChooseFighter(){
+function ChooseFighter({getFighter}){
+    
+
+
     
 const fighterCards = [
     {
@@ -168,18 +172,26 @@ const fighterCards = [
     }
 ]
 
+    const [currentFighter, setCurrentFighter] = useState({name: ""});
+
+    function secondCall() {
+        console.log(currentFighter);
+    }
+    function handleClick(i) {
+        getFighter(i.fighterName);
+    }
 
     return (
         <section>
             <div className="choose-fighter-title">
                 <h2>Choose your fighter:</h2>
             </div>
-            <div className="card-parent-div">
+            <div id="parent" className="card-parent-div">
                 { fighterCards.map((i) => (
-                    <div className="card">
-                        <div className="container">
+                    <div   className="card">
+                        <div  onClick={() => {handleClick(i)}} className="container">
                             <img className="charImage" src={ i.charImage } alt={ i.alt }/>
-                            <h2><b>{ i.fighterName }</b></h2>
+                            <h2 id="fightName"><b>{ i.fighterName }</b></h2>
                             <p>{ i.strength }</p>
                             <p>{ i.speed }</p>
                             <p>{ i.weight }</p>
