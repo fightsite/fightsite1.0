@@ -206,7 +206,7 @@ code {
   background-image: url(./assets/annie-spratt-xvU-X0GV9-o-unsplash.jpg);
   border-radius: 1%;
   width: 28%;
-  height: 750px;
+  height: 730px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
 }
 .poster-top {
@@ -269,16 +269,16 @@ code {
 }
 .poster-bet {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 140px;
+  margin-top: 1rem;
 }
 .poster-bet h3 {
   font-size: 38px;
-  font-family: 'Dekko', cursive;
+  font-family: 'Dekko', cursive;;
 }
 .poster-bet input {
   background-color: #972D07;
@@ -286,10 +286,26 @@ code {
   width: 70px;
   font-size: 1rem;
   padding: 0.25rem;
+  margin-bottom: 1rem;
   border: 1px solid var(--dark);
   outline: none;
   border-radius: 6px;
   transition: box-shadow 0.4s;
+}
+
+.submit-btn {
+  padding: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  color: #fefefe;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  letter-spacing: 6px;
+  background-color: #a4abb3;
+
 }
 
 /* fightercards.js experiment */
@@ -357,44 +373,34 @@ code {
 }
 
 /* sign-in style start */
+
 .login-main-div {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.signIn-form-main-container1 {
+.signIn-form-main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 10px;
-  border-style: solid;
   border-width: 3px;
   width: 41%;
   border-radius: 10px;
-  background-color: #46acc2;
-  margin-top: 40px;
-}
-
-.signIn-form-main-container2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 10px;
-  border-style: solid;
-  border-width: 3px;
-  width: 41%;
-  border-radius: 10px;
-  background-color: #46acc2;
-  margin-bottom: 40px;
+  background-color: #e2b1a5;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .form-title {
-  margin: 15px;
+  margin: 10px;
 }
 
 .form-title h2 {
   text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
+  letter-spacing: 4px;
 }
 
 .form b {
@@ -403,11 +409,18 @@ code {
 
 .form input {
   border-radius: 4px;
-  width: 100%
+  width: 100%;
+  height: 2rem;
+}
+.pass-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  letter-spacing: 4px;
 }
 
 .form-info {
-  width: 60%
+  width: 60%;
+  margin-bottom: 10px;
 }
 
 .form span {
@@ -417,14 +430,26 @@ code {
 }
 
 .btn-div {
+  width: 100%;
   display: flex;
     justify-content: center;
-    margin: 21px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .signIn-btns {
-  border-radius: 3px;
-  padding: 4px;
+  width: 60%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color:#fefefe;
+  font-size: 26px;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  background-color: #a4abb3;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
 }
 
 .signIn-btns:hover {
@@ -440,8 +465,8 @@ code {
 .divider {
   display: flex;
   justify-content: center;
-  margin-top: 21px;
-  margin-bottom: 21px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .divider-message {
@@ -554,6 +579,9 @@ code {
   .poster {
     width: 45%;
   }
+  .signIn-btns {
+    width: 100%;
+  }
 }
 /* for phone screens */
 @media screen and (max-width: 700px) {
@@ -585,6 +613,10 @@ code {
   }
   .user-info-inside h2 {
     font-size: 16px;
+  }
+  .signIn-btns {
+    font-size: 16px;
+    letter-spacing: 2px;
   }
 }
 @media only screen and (max-width: 425px){
