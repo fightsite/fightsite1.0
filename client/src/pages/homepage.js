@@ -42,7 +42,8 @@ function HomePage() {
 return (
     <div className='flex-project'>
         <Header></Header>
-        {(user.email != "") ? (
+        <Fight></Fight>
+        {/*{(user.email != "") ? (
            <Animation></Animation>
         ) : (
             <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>

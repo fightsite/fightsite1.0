@@ -206,7 +206,7 @@ code {
   background-image: url(./assets/annie-spratt-xvU-X0GV9-o-unsplash.jpg);
   border-radius: 1%;
   width: 28%;
-  height: 750px;
+  height: 730px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
 }
 .poster-top {
@@ -269,16 +269,16 @@ code {
 }
 .poster-bet {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 140px;
+  margin-top: 1rem;
 }
 .poster-bet h3 {
   font-size: 38px;
-  font-family: 'Dekko', cursive;
+  font-family: 'Dekko', cursive;;
 }
 .poster-bet input {
   background-color: #972D07;
@@ -286,10 +286,26 @@ code {
   width: 70px;
   font-size: 1rem;
   padding: 0.25rem;
+  margin-bottom: 1rem;
   border: 1px solid var(--dark);
   outline: none;
   border-radius: 6px;
   transition: box-shadow 0.4s;
+}
+
+.submit-btn {
+  padding: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  color: #fefefe;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  letter-spacing: 6px;
+  background-color: #a4abb3;
+
 }
 
 /* fightercards.js experiment */

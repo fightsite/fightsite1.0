@@ -29,6 +29,9 @@ function Fight(){
                 <div>
                     <input type="text" placeholder="$$" />
                 </div>
+                <div>
+                    <button className='submit-btn'> Sumbit!</button>
+                </div>
             </div>
             </div>
         </main>
