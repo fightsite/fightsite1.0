@@ -11,7 +11,6 @@ function Header() {
                 <h1>Fight Site!</h1>
             </div>
             <div className="user-button">
-                <button>Sign in</button>
                 <button>Log Out</button>
             </div>
         </div>

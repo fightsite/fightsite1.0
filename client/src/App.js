@@ -16,6 +16,9 @@ import FightPage from './pages/fightpage';
 
 function App() {
   const [user, setUser] = useState({email: ""});
+  const [error, setError] = useState("");
+
+
 
   return (
     // <div className='flex-project'>
@@ -29,7 +32,9 @@ function App() {
     //   <Results></Results> */}
     //   <Footer></Footer>
     // </div>
-    <HomePage></HomePage>
+    <>
+      <HomePage></HomePage>
+    </>
   )
 }
 

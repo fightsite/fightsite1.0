@@ -5,7 +5,7 @@ function SignIn ({ LogIn, signUp, error }) {
     
     const [userInfo, setUserInfo] = useState({email: "", password: ""});
     const [newUser, setNewUser] = useState({ username: "", email: "", password: ""});
-
+    const [currentFighter, setCurrentFighter] = useState({fighterName: ""});
     const existingLoginHandler = e => {
         e.preventDefault();
         console.log('signinjs');
