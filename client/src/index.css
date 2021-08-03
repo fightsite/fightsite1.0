@@ -319,8 +319,9 @@ code {
   height: auto;
   margin: 25px;
   border: 10px;
-  border-width: 3px;
+  border-width: 1px;
   border-style: solid;
+  background-color: #f5e3ed;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -625,7 +626,24 @@ code {
   .signIn-form-main-container2 {
     width: 80%;
   }
-  .poster {
+
+}
+
+/* character images style start */
+.charImage {
+  height: 100px;
+  width: 265px;
+}
+
+/* choose your fighter style */
+.choose-fighter-title {
+  display: flex;
+  justify-content: center;
+  padding-top: 36px;
+  font-size: 23px;
+  font-style: italic;
+}
+.poster {
     width: 100%;
   }
-}
+
