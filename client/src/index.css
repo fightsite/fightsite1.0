@@ -33,7 +33,7 @@ code {
  display: flex;
  flex-wrap: wrap;
  flex-direction: row;
- justify-content: space-evenly;
+ justify-content: space-around;
  align-items: center;
  padding-top: .7rem;
  padding-bottom: .8rem;
@@ -50,11 +50,17 @@ code {
   flex-direction: column;
   justify-content: center;
 }
-
+.user-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .user-button button {
-  margin-left: 35px;
-  margin-right: 35px;
-  padding: 15px;
+  margin-left: 80px;
+  padding: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
   border-radius: 15px;
   border: none;
   outline: none;
@@ -163,6 +169,151 @@ code {
     animation-iteration-count: infinite;
     animation-duration: 3s;
 }
+
+/*Fighter Poster that shows the fight*/
+@keyframes GrowPoster {
+  from {
+    transform: scale(0) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(359deg);
+  }
+}
+
+
+.poster-holder {
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.poster {
+  animation: GrowPoster 4s;
+  animation-iteration-count:1;
+  background-image: url(./assets/annie-spratt-xvU-X0GV9-o-unsplash.jpg);
+  border-radius: 1%;
+  width: 28%;
+  height: 750px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+
+.poster-top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.poster-top h2{
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  word-spacing: 4px;
+  font-family: 'Dela Gothic One', cursive;
+}
+
+.poster-exclusive {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.poster-exclusive span {
+  background-color: #972D07;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  border-radius: 40%;
+  margin-top: 30px;
+  margin-left: 25px;
+  height: 170px;
+  font-size: 26px;
+  font-family: 'Dela Gothic One', cursive;
+  text-align: center;
+  
+}
+
+.poster-exclusive h3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 32px;
+  font-family: 'Dekko', cursive;
+
+}
+
+.poster-fighters {
+  border-style:double;
+  border-width: 15px;
+  border-color: #972D07;
+  width: 80%;
+  height: 250px;
+  margin-top: 30px;
+  margin-left: 50px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.poster-fighters h3 {
+  margin-top: 25px;
+  font-size: 36px;
+  font-family: 'Dela Gothic One', cursive;
+}
+
+.poster-bet {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 140px;
+}
+
+.poster-bet h3 {
+  font-size: 38px;
+  font-family: 'Dekko', cursive;
+
+}
+
+.poster-bet input {
+  background-color: #972D07;
+  height: 40px;
+  width: 70px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border: 1px solid var(--dark);
+  outline: none;
+  border-radius: 6px;
+  transition: box-shadow 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* fightercards.js experiment */
 
@@ -309,30 +460,18 @@ code {
   text-align: center;
 }
 
-@media only screen and (max-width: 425px){
-  .signIn-form-main-container1 {
-    width:80%;
-  }
-  .signIn-form-main-container2 {
-    width: 80%;
-  }
-}
+/*Media Queries*/
 
-/* for phone screens */
-@media screen and (max-width: 700px) {
-  .header-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .user-button button {
-    margin-bottom: 25px;
-  }
+/* Monitor size + */
+@media only screen and (max-width: 1500px){
   .signIn-form-main-container1 {
-    width:80%;
+    width:60%;
   }
   .signIn-form-main-container2 {
-    width: 80%;
+    width: 60%;
+  }
+  .poster {
+    width: 35%;
   }
 }
 
@@ -344,14 +483,138 @@ code {
   .signIn-form-main-container2 {
     width: 70%;
   }
+  .poster {
+    width: 45%;
+  }
 }
-
-/* Monitor size + */
-@media only screen and (max-width: 1500px){
+/* for phone screens */
+@media screen and (max-width: 700px) {
+  .header-inside h1 {
+    font-size: 40px;
+  }
+  .user-info-inside h2 {
+    font-size: 20px;
+  }
+  
   .signIn-form-main-container1 {
-    width:60%;
+    width:80%;
   }
   .signIn-form-main-container2 {
-    width: 60%;
+    width: 80%;
   }
+  .poster {
+    width: 70%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media only screen and (max-width: 600px){
+  .poster {
+    width: 90%;
+  }
+  .header-inside h1 {
+    font-size: 35px;
+  }
+  .user-info-inside h2 {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 425px){
+  .signIn-form-main-container1 {
+    width:80%;
+  }
+  .signIn-form-main-container2 {
+    width: 80%;
+  }
+  .poster {
+    width: 100%;
+    
+  }
+}
+
+.coin1 {
+  height: 70px;
+  width: 70px;
+}
+.coin2 {
+  height: 70px;
+  width: 70px;
+}
+.coin3 {
+  height: 70px;
+  width: 70px;
+}
+.coin4 {
+  height: 70px;
+  width: 70px;
+}
+.coin5 {
+  height: 70px;
+  width: 70px;
+}
+.coin6 {
+  height: 70px;
+  width: 70px;
+}
+.coin7 {
+  height: 70px;
+  width: 70px;
+}
+.coin8 {
+  height: 70px;
+  width: 70px;
+}
+.coin9 {
+  height: 70px;
+  width: 70px;
+}
+.coin10 {
+  height: 70px;
+  width: 70px;
+}
+.coin11 {
+  height: 70px;
+  width: 70px;
+}
+.coin12 {
+  height: 70px;
+  width: 70px;
+}
+.coin13 {
+  height: 70px;
+  width: 70px;
+}
+.coin14 {
+  height: 70px;
+  width: 70px;
+}
+.coin15 {
+  height: 70px;
+  width: 70px;
+}
+.coin16 {
+  height: 70px;
+  width: 70px;
+}
+.coin17 {
+  height: 70px;
+  width: 70px;
+}
+.coin18 {
+  height: 70px;
+  width: 70px;
+}
+.coin19 {
+  height: 70px;
+  width: 70px;
+}
+.coin20 {
+  height: 70px;
+  width: 70px;
+}
+.coin-holder {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
