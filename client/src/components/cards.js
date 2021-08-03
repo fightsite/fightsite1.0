@@ -6,7 +6,7 @@ function Cards () {
     return (
         <div className="fighter-div">
             <FighterCards
-                charPicture={ TimmyTurner }
+                charImage={ TimmyTurner }
                 fighterName="Timmy Turner"
                 strength="Str: 10"
                 speed="Spd: 18"

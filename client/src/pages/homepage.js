@@ -42,6 +42,9 @@ function HomePage() {
 return (
     <div className='flex-project'>
         <Header></Header>
+
+        {/* <SignIn></SignIn> */}
+
         {(user.email != "") ? (
            <Animation></Animation>
         ) : (
@@ -49,11 +52,13 @@ return (
             
         )}
         
+
         {/* <ChooseBets></ChooseBets> */}
-        {/* <ChooseFighter></ChooseFighter>
-        <Fight></Fight>
-        <Login></Login>
-        <Results></Results> */}
+        <ChooseFighter></ChooseFighter>
+        {/* <FighterCards></FighterCards> */}
+        {/* <Fight></Fight> */}
+        {/* <Login></Login> */}
+        {/* <Results></Results> */}
         <Footer></Footer>
   </div>
 )
