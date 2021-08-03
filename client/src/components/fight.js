@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Fight({currentFighter}){
+function Fight({currentFighter, randomFighter}){
     
     console.log(currentFighter);
     
@@ -22,7 +22,7 @@ function Fight({currentFighter}){
                     <h3>VS</h3>
                 </div>
                 <div>
-                    <h3>Fighter 2</h3>
+                    <h3>{randomFighter.name}</h3>
                 </div>
             </div>
             <div className='poster-bet'>
