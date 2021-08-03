@@ -46,16 +46,13 @@ function HomePage({}) {
 return (
     <div className='flex-project'>
         <Header></Header>
-
-        {/* <SignIn></SignIn> */}
-
-        {(user.email != "") ? (
+       {(user.email != "") ? (
            <ChooseFighter getFighter={getFighter}></ChooseFighter>
         ) : (user.email != "" && currentFighter != "") ? (
             <Fight></Fight>
             ) : (
                 <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
-                
+        
         )}
         {/* {(user.email && currentFighter.name)} */}
         

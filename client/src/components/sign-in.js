@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Login from './login';
+
 
 function SignIn ({ LogIn, signUp, error }) {
     
@@ -19,13 +19,13 @@ function SignIn ({ LogIn, signUp, error }) {
     }
     return (
     <main className="login-main-div">  
-        <section className="signIn-form-main-container1">
+        <section className="signIn-form-main-container">
             <div className="form-title">
                 <h2>Sign in to start the fights!</h2>
             </div>
             <div className="form-info">
                 <form onSubmit={existingLoginHandler} className="form">
-                    <label for="email"><b>Email:</b></label>
+                    <label for="email" className="pass-title"><b>Email:</b></label>
                     <span><input id="existingUser" type="text" placeholder="Enter email" name="email" onChange={e => setUserInfo({...userInfo, email: e.target.value})} value={userInfo.email} required/></span>
 
                     <label for="password"><b className="pass-title">Password:</b></label>
@@ -41,7 +41,7 @@ function SignIn ({ LogIn, signUp, error }) {
                 <h2 className="divider-message">Don't have an account? No Problem!</h2>
             </div>
         </section>
-        <section className="signIn-form-main-container2">
+        <section className="signIn-form-main-container">
             <div className="form-title">
                 <h2>Sign up with us now!</h2>
             </div>
@@ -52,7 +52,7 @@ function SignIn ({ LogIn, signUp, error }) {
                     <span><input type="password" placeholder="Enter username" name="username" onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} required/></span>
 
 
-                    <label for="email"><b>Email:</b></label>
+                    <label for="email" className="pass-title"><b>Email:</b></label>
                     <span><input type="text" placeholder="Enter email" name="email" onChange={e => setNewUser({...newUser, email: e.target.value})}  value={newUser.email} required/></span>
 
                     <label for="password"><b className="pass-title">Password:</b></label>
