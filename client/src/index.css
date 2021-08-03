@@ -175,9 +175,9 @@ code {
   height: auto;
   margin: 25px;
   border: 10px;
-  border-width: 3px;
+  border-width: 1px;
   border-style: solid;
-  background-color: #e7eacc;
+  background-color: #f5e3ed;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -359,4 +359,5 @@ code {
   justify-content: center;
   padding-top: 36px;
   font-size: 23px;
+  font-style: italic;
 }
