@@ -12,64 +12,51 @@ import SignIn from '../components/sign-in';
 import { useState } from 'react'
 
 function HomePage({}) {
-    const admin = {
-        email: "pete@pete.com",
-        password: 'peter'
-    }
+    
 
-    const [user, setUser] = useState({email: ""});
+    const [user, setUser] = useState({email: "", password: ""});
     const [currentFighter, setCurrentFighter] = useState({name: ""});
+    const [userBet, setUserBet] = useState("");
     const [error, setError] = useState("");
+    
 
-    const login = userInfo => {
-        
-        if(userInfo.email === admin.email && userInfo.password === admin.password) {
-            setUser({ email: userInfo.email });
-            console.log('you made it');
-        }
-        else {
-            console.log('idiot');
-        }
+    let pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
+    if(user.email!="" && currentFighter.name!="") {
+        pageContent = <Fight currentFighter={currentFighter} ></Fight>
     }
-    const getFighter = fighterInfo => {
-        console.log(fighterInfo);
-        setCurrentFighter({name: fighterInfo});
+    else if(user.email!="" && currentFighter.name==="") {
+        pageContent = <ChooseFighter currentFighter={currentFighter} setCurrentFighter={setCurrentFighter}></ChooseFighter>
     }
-    const logout = () => {
-        console.log("logout");
+    else {
+        pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
     }
+    
+    console.log(currentFighter);
+        return (
+            <div className='flex-project'>
+                <Header></Header>
 
-    const createUser = (details) => {
-        
+                {/* <SignIn></SignIn> */}
+                {/* <SignIn user={user} setUser={setUser} LogIn={login} signUp={createUser} error={error} ></SignIn> */}
+                {pageContent}
+                {/*                 
+                <ChooseFighter getFighter={getFighter}></ChooseFighter>
+               
+                <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn> */}
 
-    }
-return (
-    <div className='flex-project'>
-        <Header></Header>
-
-        {/* <SignIn></SignIn> */}
-
-        {(user.email != "") ? (
-           <ChooseFighter getFighter={getFighter}></ChooseFighter>
-        ) : (user.email != "" && currentFighter != "") ? (
-            <Fight></Fight>
-            ) : (
-                <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
+                {/* {(user.email && currentFighter.name)} */}
                 
-        )}
-        {/* {(user.email && currentFighter.name)} */}
-        
 
-        {/* <ChooseBets></ChooseBets> */}
-        
-        {/* <FighterCards></FighterCards> */}
-        {/* <Fight></Fight> */}
-        {/* <Login></Login> */}
-        {/* <Results></Results> */}
-        <Footer></Footer>
-  </div>
-)
-   
+                {/* <ChooseBets></ChooseBets> */}
+                
+                {/* <FighterCards></FighterCards> */}
+                {/* <Fight></Fight> */}
+                {/* <Login></Login> */}
+                {/* <Results></Results> */}
+                <Footer></Footer>
+        </div>
+        )
+    
 }
 
 export default HomePage;

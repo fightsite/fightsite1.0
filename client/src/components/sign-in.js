@@ -1,22 +1,41 @@
 import React, { useState } from 'react';
 import Login from './login';
 
-function SignIn ({ LogIn, signUp, error }) {
+function SignIn ({ user, setUser, error }) {
     
-    const [userInfo, setUserInfo] = useState({email: "", password: ""});
+    const admin = {
+        email: "pete@pete.com",
+        password: 'peter'
+    }
+    // const [user, setUser] = useState({email: "", password: ""});
     const [newUser, setNewUser] = useState({ username: "", email: "", password: ""});
-    const [currentFighter, setCurrentFighter] = useState({fighterName: ""});
+
     const existingLoginHandler = e => {
         e.preventDefault();
-        console.log('signinjs');
-        LogIn(userInfo)
+        console.log(e.target.email.value);
+        const logInEmail = e.target.email.value;
+        const logInPassword = e.target.password.value;
+
+        if(logInEmail === admin.email && logInPassword === admin.password) {
+            setUser({email: e.target.email.value, password: e.target.password.value});
+            
+        }
+        else {
+            window.alert('Wrong password bozo!');
+        }
+        
+        
+        
+        // LogIn(user)
     }
 
     const newUserSignup = e => {
         e.preventDefault();
         console.log('signupjs');
-        signUp(newUser);
+        
     }
+    // onChange={e => setUser({...user, email: e.target.value})} value={user.email}
+    // onChange={e => setUser({...user, password: e.target.value})} value={user.password}
     return (
     <main className="login-main-div">  
         <section className="signIn-form-main-container1">
@@ -26,10 +45,10 @@ function SignIn ({ LogIn, signUp, error }) {
             <div className="form-info">
                 <form onSubmit={existingLoginHandler} className="form">
                     <label for="email"><b>Email:</b></label>
-                    <span><input id="existingUser" type="text" placeholder="Enter email" name="email" onChange={e => setUserInfo({...userInfo, email: e.target.value})} value={userInfo.email} required/></span>
+                    <span><input id="existingUser" type="text" placeholder="Enter email" name="email"  required/></span>
 
                     <label for="password"><b className="pass-title">Password:</b></label>
-                    <span><input type="password" placeholder="Enter password" name="password" autoComplete="off" onChange={e => setUserInfo({...userInfo, password: e.target.value})} value={userInfo.password} required/></span>
+                    <span><input type="password" placeholder="Enter password" name="password" autoComplete="off"  required/></span>
                     <div className="btn-div">
                         <button id="login" className="signIn-btns" type="submit">Login</button>
                     </div>

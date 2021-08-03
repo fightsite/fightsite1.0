@@ -20,7 +20,7 @@ import nathanDrake from '../../src/assets/nathandrake.png';
 import willFerrell from '../../src/assets/willferrell.jpg';
 import { get } from 'mongoose';
 
-function ChooseFighter({getFighter}){
+function ChooseFighter({currentFighter, setCurrentFighter}){
     
 
 
@@ -172,13 +172,9 @@ const fighterCards = [
     }
 ]
 
-    const [currentFighter, setCurrentFighter] = useState({name: ""});
-
-    function secondCall() {
-        console.log(currentFighter);
-    }
     function handleClick(i) {
-        getFighter(i.fighterName);
+        setCurrentFighter({name: i.fighterName})
+
     }
 
     return (

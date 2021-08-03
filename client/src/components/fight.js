@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function Fight(){
+function Fight({currentFighter}){
+    
+    console.log(currentFighter);
+    
     return (
         <main className='poster-holder'>
             <div className='poster'>
@@ -13,7 +16,7 @@ function Fight(){
             </div>
             <div className='poster-fighters'>
                 <div>
-                    <h3>Fighter 1</h3>
+                    <h3>{currentFighter.name}</h3>
                 </div>
                 <div>
                     <h3>VS</h3>
