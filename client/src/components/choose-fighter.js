@@ -181,6 +181,14 @@ const fighterCards = [
         getFighter(i.fighterName);
     }
 
+    function randomOpponent(){
+        let randomFighter = Math.floor(Math.random() * fighterCards.length);
+    let chosenOpponent = fighterCards[randomFighter].fighterName;
+        console.log(chosenOpponent)
+    }
+    randomOpponent()
+
+
     return (
         <section>
             <div className="choose-fighter-title">
