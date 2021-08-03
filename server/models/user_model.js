@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-// const Order = require("./Order");
 
 const userSchema = new Schema({
   username: {
@@ -25,20 +24,29 @@ const userSchema = new Schema({
     required: true,
     default: 10,
   },
-  // orders: [Order.schema],
 });
 
 // set up pre-save middleware to create password
 userSchema.pre("save", async function (next) {
-  if (this.isNew || this.isModified("password")) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
+  //if (this.isNew || this.isModified("password")) {
+  const saltRounds = 10;
+  this.password = await bcrypt.hash(this.password, saltRounds);
+  //}
 
   next();
 });
 
-// compare the incoming password with the hashed password
+userSchema.pre("findOneAndUpdate", async function (next) {
+  const userBeingUpdated = await this.model.findOne(this.getQuery());
+  const saltRounds = 10;
+  userBeingUpdated.password = await bcrypt.hash(
+    userBeingUpdated.password,
+    saltRounds
+  );
+
+  next();
+});
+
 userSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
