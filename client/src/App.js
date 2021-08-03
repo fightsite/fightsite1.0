@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import ChooseBets from './components/choose-bet';
 // import ChooseFighter from './components/choose-fighter';
@@ -12,8 +12,11 @@ import React from 'react';
 // import Animation from './components/animation';
 // import SignIn from './components/sign-in';
 import HomePage from './pages/homepage';
+import FightPage from './pages/fightpage';
 
 function App() {
+  const [user, setUser] = useState({email: ""});
+
   return (
     // <div className='flex-project'>
     //   <Header></Header>
