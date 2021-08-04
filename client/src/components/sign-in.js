@@ -19,13 +19,22 @@ function SignIn ({ user, setUser, newUser, setNewUser}) {
         
     }
     
-    const newUserSignup = e => {
-        e.preventDefault();
+    const newUserSignup = async event => {
+        event.preventDefault();
         
-        const username = e.target.username.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+        const username = event.target.username.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
 
+        try {
+            const { data } = await addUser({
+                variables: { username, email, password}
+            });
+            console.log(data);
+        }
+        catch(e) {
+            console.error(e);
+        }
         console.log(username, email, password)
         // onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} 
         //onChange={e => setNewUser({...newUser, email: e.target.value})}  value={newUser.email}
