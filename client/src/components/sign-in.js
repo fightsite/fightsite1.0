@@ -68,7 +68,9 @@ function SignIn ({ user, setUser, newUser, setNewUser}) {
 
                 <form onSubmit={newUserSignup} className="form">
                 <label for="username"><b className="pass-title">Create Username:</b></label>
+
                     <span><input type="password" placeholder="Enter username" name="username" required/></span>
+
 
 
                     <label for="email" className="pass-title"><b>Email:</b></label>
