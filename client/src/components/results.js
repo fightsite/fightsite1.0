@@ -22,10 +22,25 @@ function Results(){
     const results = [
         'Winner',
         'Loser'
+        
     ]
+    
+    const bet = [
+        'You just won $',
+        'You just lost $'
+    ]
+
     //using math.random to go through results
     let randomResult = Math.floor(Math.random() * results.length);
     let resultChosen = results[randomResult]
+    let chosenBet;
+
+    if(resultChosen === results[0]) {
+        chosenBet = bet[0];
+    }
+    else{
+        chosenBet = bet[1]
+    }
 
     return (
         <div className='results'>
@@ -36,7 +51,7 @@ function Results(){
                 <h2>{resultChosen}!!!!</h2>
             </div>
             <div className="money">
-                <h2>You just won $500! </h2>
+                <h2>{chosenBet} </h2>
             </div>
             <div className="results-btn-holder">
                 <button className="results-btn">Play Again</button>
