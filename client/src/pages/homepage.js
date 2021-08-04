@@ -8,54 +8,62 @@ import Animation from '../components/animation';
 import SignIn from '../components/sign-in';
 import { useState } from 'react'
 
-function HomePage() {
-    const admin = {
-        email: "pete@pete.com",
-        password: 'peter'
-    }
 
-    const [user, setUser] = useState({email: ""});
+function HomePage({}) {
+    
+
+    const [user, setUser] = useState({email: "", password: ""});
+    const [currentFighter, setCurrentFighter] = useState({name: ""});
+    const [userBet, setUserBet] = useState("");
+    const [randomFighter, setRandomFighter] = useState({name: ""});
     const [error, setError] = useState("");
+    
+    console.log(userBet);
 
-    const login = userInfo => {
-        console.log(userInfo);
-        if(userInfo.email === admin.email && userInfo.password === admin.password) {
-            setUser({ email: userInfo.email });
-            console.log('you made it');
-        }
-        else {
-            console.log('idiot');
-        }
+    let pageContent; 
+    if(user.email==="" && currentFighter.name==="" && userBet === "") {
+        pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
+        console.log(randomFighter);
+       
     }
-
-    const logout = () => {
-        console.log("logout");
-    }
-
-    const createUser = (details) => {
-        
+    else if(user.email != "" && currentFighter.name === "" && userBet === "") {
+        pageContent = <ChooseFighter currentFighter={currentFighter} setCurrentFighter={setCurrentFighter} setRandomFighter={setRandomFighter}></ChooseFighter>
 
     }
-return (
-    <div className='flex-project'>
-        <Header></Header>
-        <ChooseFighter></ChooseFighter>
-        {/*(user.email != "") ? (
-           <Animation></Animation>
-        
-        ) : (
-            <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn>
-            
-        )}
-        
-        {/* <ChooseBets></ChooseBets> */}
-        {/* <ChooseFighter></ChooseFighter>
-        <Fight></Fight>
-        <Login></Login>
-        <Results></Results> */}
-        <Footer></Footer>
-  </div>
-)
+    else if(user.email != "" && currentFighter.name != "" && userBet === "") {
+        pageContent = <Fight setUserBet={setUserBet} currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
+    }
+    else {
+        pageContent = <Results></Results>
+    }
+
+    
+    console.log(currentFighter);
+        return (
+            <div className='flex-project'>
+                <Header></Header>
+
+                {/* <SignIn></SignIn> */}
+                {/* <SignIn user={user} setUser={setUser} LogIn={login} signUp={createUser} error={error} ></SignIn> */}
+                {pageContent}
+                {/*                 
+                <ChooseFighter getFighter={getFighter}></ChooseFighter>
+               
+                <SignIn LogIn={login} signUp={createUser} error={error} ></SignIn> */}
+
+                {/* {(user.email && currentFighter.name)} */}
+                
+
+                {/* <ChooseBets></ChooseBets> */}
+                
+                {/* <FighterCards></FighterCards> */}
+                {/* <Fight></Fight> */}
+                {/* <Login></Login> */}
+                {/* <Results></Results> */}
+                <Footer></Footer>
+        </div>
+        )
+
     
 }
 
