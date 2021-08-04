@@ -17,4 +17,4 @@ A website of random characters, both real and fictional, that are pitted against
 (insert heroku link here)
 
 ## Screenshot
-![Full website screenshot](./assets/screenshot.png)
+![Full website screenshot](client/src/assets/screenshot.png)
