@@ -8,7 +8,13 @@ function Fight({setUserBet, currentFighter, randomFighter}){
         e.preventDefault();
         const userBet = e.target.bet.value;
         setUserBet(userBet);
-
+        
+        //
+        //fetch for bet
+        //take away user bet +
+        // In
+        //return if results are win || keep if results are lose
+        
     }
     return (
         <main className='poster-holder'>
