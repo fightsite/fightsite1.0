@@ -1,4 +1,12 @@
 import React, {useState} from 'react';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+  createHttpLink
+} from '@apollo/client'
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import ChooseBets from './components/choose-bet';
 // import ChooseFighter from './components/choose-fighter';
@@ -14,6 +22,13 @@ import React, {useState} from 'react';
 import HomePage from './pages/homepage';
 import FightPage from './pages/fightpage';
 
+const httpLink = createHttpLink({
+  uri: 'http:localhost:3001/graphql',
+});
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+})
 function App() {
   const [user, setUser] = useState({email: ""});
   const [error, setError] = useState("");
@@ -21,20 +36,12 @@ function App() {
 
 
   return (
-    // <div className='flex-project'>
-    //   <Header></Header>
-    //   <SignIn></SignIn>
-    //   {/* <ChooseBets></ChooseBets> */}
-    //   {/* <ChooseFighter></ChooseFighter> */}
-    //   {/* <ChooseFighter></ChooseFighter>
-    //   <Fight></Fight>
-    //   <Login></Login>
-    //   <Results></Results> */}
-    //   <Footer></Footer>
-    // </div>
-    <>
+    <ApolloProvider client={client}>
+    
       <HomePage></HomePage>
-    </>
+
+    </ApolloProvider>
+    
   )
 }
 

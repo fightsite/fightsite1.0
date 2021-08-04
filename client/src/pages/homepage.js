@@ -13,6 +13,7 @@ function HomePage({}) {
     
 
     const [user, setUser] = useState({email: "", password: ""});
+    const [newUser, setNewUser] = useState({username: "", email: "", password: ""});
     const [currentFighter, setCurrentFighter] = useState({name: ""});
     const [userBet, setUserBet] = useState("");
     const [randomFighter, setRandomFighter] = useState({name: ""});
@@ -22,7 +23,7 @@ function HomePage({}) {
 
     let pageContent; 
     if(user.email==="" && currentFighter.name==="" && userBet === "") {
-        pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
+        pageContent = <SignIn user={user} setUser={setUser} newUser={newUser} setNewUser={setNewUser} ></SignIn>
         console.log(randomFighter);
        
     }
