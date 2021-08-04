@@ -19,6 +19,8 @@ code {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+  /* makes sure the cards stay the same shape with longer names */
+  width: 300px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -35,8 +37,10 @@ code {
   margin-top: 45px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
+  padding-right: 10px;
 }
 
 .container {
@@ -44,4 +48,12 @@ code {
   font-family: 'Roboto', sans-serif;
   color: #070101;
   margin-top: 10px;
+}
+
+.fighter-div {
+  margin: 105px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
