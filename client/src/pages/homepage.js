@@ -18,19 +18,23 @@ function HomePage({}) {
     const [randomFighter, setRandomFighter] = useState({name: ""});
     const [error, setError] = useState("");
     
+    console.log(userBet);
 
-
-    let pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
-    if(user.email!="" && currentFighter.name!="") {
+    let pageContent; 
+    if(user.email==="" && currentFighter.name==="" && userBet === "") {
+        pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
         console.log(randomFighter);
-        pageContent = <Fight currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
+       
     }
-    else if(user.email!="" && currentFighter.name==="") {
+    else if(user.email != "" && currentFighter.name === "" && userBet === "") {
         pageContent = <ChooseFighter currentFighter={currentFighter} setCurrentFighter={setCurrentFighter} setRandomFighter={setRandomFighter}></ChooseFighter>
 
     }
+    else if(user.email != "" && currentFighter.name != "" && userBet === "") {
+        pageContent = <Fight setUserBet={setUserBet} currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
+    }
     else {
-        pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
+        pageContent = <Results></Results>
     }
 
     

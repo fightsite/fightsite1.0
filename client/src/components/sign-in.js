@@ -70,7 +70,7 @@ function SignIn ({ user, setUser, error }) {
 
                 <form onSubmit={newUserSignup} className="form">
                 <label for="username"><b className="pass-title">Create Username:</b></label>
-                    <span><input type="password" placeholder="Enter username" name="username" onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} required/></span>
+                    <span><input type="text" placeholder="Enter username" name="username" onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} required/></span>
 
 
                     <label for="email" className="pass-title"><b>Email:</b></label>

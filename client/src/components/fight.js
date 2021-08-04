@@ -1,9 +1,21 @@
 import React, {useState} from 'react';
 
-function Fight({currentFighter, randomFighter}){
+function Fight({setUserBet, currentFighter, randomFighter}){
     
     console.log(currentFighter);
     
+    const placeBetHandler = e => {
+        e.preventDefault();
+        const userBet = e.target.bet.value;
+        setUserBet(userBet);
+        
+        //
+        //fetch for bet
+        //take away user bet +
+        // In
+        //return if results are win || keep if results are lose
+        
+    }
     return (
         <main className='poster-holder'>
             <div className='poster'>
@@ -25,17 +37,17 @@ function Fight({currentFighter, randomFighter}){
                     <h3>{randomFighter.name}</h3>
                 </div>
             </div>
-            <div className='poster-bet'>
+            <form onSubmit={placeBetHandler} className='poster-bet'>
                 <div>
                     <h3>Place Your Bet Here!</h3>
                 </div>
                 <div>
-                    <input type="text" placeholder="$$" />
+                    <input type="text" placeholder="$$" name="bet" />
                 </div>
                 <div>
-                    <button className='submit-btn'> Sumbit!</button>
+                    <button type="submit" className='submit-btn'> Sumbit!</button>
                 </div>
-            </div>
+            </form>
             </div>
         </main>
     )

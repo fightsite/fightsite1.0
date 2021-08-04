@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// import fighterCards from './fightercards';
+
 import timmyTurner from '../../src/assets/timmyturner.png';
 import morganFreeman from '../../src/assets/morganfreeman.png.jpg';
 import nicolasCage from '../../src/assets/nickcage.png';
@@ -20,11 +20,9 @@ import nathanDrake from '../../src/assets/nathandrake.png';
 import willFerrell from '../../src/assets/willferrell.jpg';
 import { get } from 'mongoose';
 
+
 function ChooseFighter({currentFighter, setCurrentFighter, setRandomFighter}){
-    
 
-
-    
 const fighterCards = [
     {
         charImage: timmyTurner,
@@ -151,7 +149,7 @@ const fighterCards = [
         alt:"Picture of Superman",
         fighterName:"Superman",
         strength:"Str: 9998",
-        speed:"Spd: 9854642452585.64",
+        speed:"Spd: 98546424",
         weight:"Wgt: 220 lbs"
     },
     {   
