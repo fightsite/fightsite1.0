@@ -18,7 +18,7 @@ import littleFoot from '../../src/assets/littlefoot.jpg';
 import superman from '../../src/assets/superman.png';
 import nathanDrake from '../../src/assets/nathandrake.png';
 import willFerrell from '../../src/assets/willferrell.jpg';
-import { get } from 'mongoose';
+//import { get } from 'mongoose';
 
 
 function ChooseFighter({currentFighter, setCurrentFighter, setRandomFighter}){

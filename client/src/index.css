@@ -263,9 +263,10 @@ code {
   justify-content: center;
 }
 .poster-fighters h3 {
-  margin-top: 25px;
-  font-size: 36px;
+  margin-top: 20px;
+  font-size: 32px;
   font-family: 'Dela Gothic One', cursive;
+  text-align: center;
 }
 .poster-bet {
   display: flex;

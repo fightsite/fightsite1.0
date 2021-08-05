@@ -22,21 +22,17 @@ const resolvers = {
       return { token, user };
     },
     updateUser: async (parent, args) => {
-      // const filter = {email: args.email}
-      // const update = {$set: {balance: args.balance}}
-      const updatedUser = await User.findOneAndUpdate({email: args.email}, {$set: {balance: args.balance}}, {new: true});
-      
+
+      console.log(args);
+      const updatedUser = await User.findOneAndUpdate(
+         args.email, args.balance,{ new: true});
+
       if(!updatedUser) {
         throw new AuthenticationError("No user");
       }
-      // user.balance = balance;
-
+     
       return updatedUser;
-        // const updateUser = await User.findByIdAndUpdate(args.id, args.balance, {
-        //   new: true,
-        // });
-        // console.log(args);
-        // return updateUser
+        
       
 
     },

@@ -4,9 +4,9 @@ export const GET_USER = gql`
     {
         me{
             _id
-            username,
-            password,
-            email,
+            username
+            password
+            email
             balance
         }
     }
