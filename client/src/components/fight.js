@@ -37,7 +37,7 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
                 variables: { ...formState }
             });
             console.log(data);
-            setUserBalance({ balance: data.updateUser.user.balance})
+            setUserBalance({ balance: data.updateUser.balance})
         }
         catch(e) {
             console.error(e);
