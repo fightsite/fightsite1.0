@@ -31,7 +31,7 @@ export const UPDATE_USER = gql`
     mutation updateUser($email: String!, $balance: Int!, ) {
         updateUser(email: $email, balance: $balance) {
            email
-             balance
+           balance
             
         }
     }
