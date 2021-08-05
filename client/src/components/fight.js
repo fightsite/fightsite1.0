@@ -7,18 +7,45 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
     const [updateUser, {error}] = useMutation(UPDATE_USER);
     const [formState, setFormState] = useState({email: user.email, balance: ''})
     // console.log(currentFighter);
+    // const userBet = e.target.bet.value;
+    // const currentBalance = user.balance;
+    // const currentUser = user.email;
     
-    const placeBetHandler = async e => {
+    const placeBetHandler = e => {
+        const { name, value } = e.target;
+        const userBalance = 10;
+        const updateBalance = userBalance - value;
+        
+        setUserBalance({
+            ...user,
+            [name]: updateBalance
+        });
+        
+    }
+    const submitBet = async e => {
         e.preventDefault();
-        const userBet = e.target.bet.value;
-        const currentBalance = user.balance;
-        const currentUser = user.email;
-        
-        const updatedBalance = currentBalance - userBet;
-        
-        const handlePlaceBet = e => {
-            console.log('place bet')
+        console.log(user.balance);
+        try {
+            const { data } = await updateUser({email: user.email, balance: user.balance});
+            console.log(data);
         }
+        catch(e) {
+            console.error(e);
+        }
+        // try {
+        //     const { data } = await updateUser({
+        //         email: user.email,
+        //         balance: 3
+        //     });
+        //     console.log(data.updateUser.balance);
+        // }
+        // catch(e) {
+        //     console.error(e, 'ok');
+        // }
+        
+    }
+
+        
         // try {
         //     const { data } = await updateUser({
                 
@@ -55,7 +82,7 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
         //     console.error({e})
         // }
         // keep track of what the user bets
-        setUserBet(userBet);
+        // setUserBet(userBet);
         
        
             
@@ -63,7 +90,7 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
 
         
         
-    }
+    
     return (
         <main className='poster-holder'>
             <div className='poster'>
@@ -85,12 +112,12 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
                     <h3>{randomFighter.name}</h3>
                 </div>
             </div>
-            <form onSubmit={placeBetHandler} className='poster-bet'>
+            <form onSubmit={submitBet} className='poster-bet'>
                 <div>
                     <h3>Place Your Bet Here!</h3>
                 </div>
                 <div>
-                    <input value={formState.email} type="text" placeholder="$$" name="bet" />
+                    <input onChange={placeBetHandler}type="text" placeholder="$$" name="balance" />
                 </div>
                 <div>
                     <button  type="submit" className='submit-btn'> Sumbit!</button>

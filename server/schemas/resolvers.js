@@ -21,9 +21,13 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUser: async (parent, { email, balance }) => {
-      console.log('okay')
-      const updatedUser = await User.findOneAndUpdate({ email }, {$set: {balance: balance}}, { new: true});
+    updateUser: async (parent, {email, balance}) => {
+      console.log('okay');
+      const updatedUser = await User.findOneAndUpdate(
+        { email: email },
+        {$set: {balance: balance}}, 
+        { new: true}
+        );
       if(!updatedUser) {
         throw new AuthenticationError("No user");
       }
