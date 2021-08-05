@@ -41,8 +41,8 @@ function SignIn ({ user, setUser}) {
                 variables: { ...formState } 
             });
             Auth.login(data.login.token)
-            console.log(data.login.user.email)
-            setUser({email: data.login.user.email, balance: data.login.user.balance});
+            console.log(data.login.user._id)
+            setUser({id: data.login.user._id, email: data.login.user.email, balance: data.login.user.balance });
             
             
 

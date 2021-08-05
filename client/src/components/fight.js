@@ -1,32 +1,65 @@
 import React, {useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../utils/mutations'; 
+import { gql } from '@apollo/client';
 
 function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}){
     const [updateUser, {error}] = useMutation(UPDATE_USER);
-
+    const [formState, setFormState] = useState({email: user.email, balance: ''})
     // console.log(currentFighter);
     
-    const placeBetHandler = e => {
+    const placeBetHandler = async e => {
         e.preventDefault();
         const userBet = e.target.bet.value;
         const currentBalance = user.balance;
         const currentUser = user.email;
         
         const updatedBalance = currentBalance - userBet;
-
-        console.log(currentUser);
+        
+        const handlePlaceBet = e => {
+            console.log('place bet')
+        }
+        // try {
+        //     const { data } = await updateUser({
+                
+        //     })
+        // }
+        // const updateBalanceFetch = async (currentUser, updatedBalance) => {
+        //     const query =JSON.stringify({
+        //         query: `mutation {
+        //             updateUser(
+        //                 email: ${currentUser},
+        //                 balance: ${updatedBalance}) { email }
+        //             )
+        //         }`
+        //     });
+        //     const response = await fetch('http://localhost:3001/graphql', {
+        //         headers: { 'content=type': 'application/json'},
+        //         method: 'POST',
+        //         body: query,
+        //     });
+        //     const responseJson = await response.json();
+        //     console.log(responseJson.data)
+        // }
+        // updateBalanceFetch(currentUser, updatedBalance);
+        // try {
+        //     const { data } =  updateUser({
+        //         variables: {
+        //             email: currentUser,
+        //             balance: updatedBalance
+        //         }
+        //     });
+        //     console.log(data);
+        // }
+        // catch(e) {
+        //     console.error({e})
+        // }
         // keep track of what the user bets
         setUserBet(userBet);
         
        
-            const { data } =  updateUser({
-                variables: {
-                    email: currentUser,
-                    balance: updatedBalance
-                }
-            });
-            console.log(data);
+            
+            
 
         
         
@@ -57,10 +90,10 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
                     <h3>Place Your Bet Here!</h3>
                 </div>
                 <div>
-                    <input type="text" placeholder="$$" name="bet" />
+                    <input value={formState.email} type="text" placeholder="$$" name="bet" />
                 </div>
                 <div>
-                    <button type="submit" className='submit-btn'> Sumbit!</button>
+                    <button  type="submit" className='submit-btn'> Sumbit!</button>
                 </div>
             </form>
             </div>
