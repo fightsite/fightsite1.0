@@ -1,19 +1,34 @@
 import React, {useState} from 'react';
+import { useMutation } from '@apollo/client';
+import { UPDATE_USER } from '../utils/mutations'; 
 
-function Fight({setUserBet, currentFighter, randomFighter}){
-    
-    console.log(currentFighter);
+function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}){
+    const [updateUser, {error}] = useMutation(UPDATE_USER);
+
+    // console.log(currentFighter);
     
     const placeBetHandler = e => {
         e.preventDefault();
         const userBet = e.target.bet.value;
+        const currentBalance = user.balance;
+        const currentUser = user.email;
+        
+        const updatedBalance = currentBalance - userBet;
+
+        console.log(currentUser);
+        // keep track of what the user bets
         setUserBet(userBet);
         
-        //
-        //fetch for bet
-        //take away user bet +
-        // In
-        //return if results are win || keep if results are lose
+       
+            const { data } =  updateUser({
+                variables: {
+                    email: currentUser,
+                    balance: updatedBalance
+                }
+            });
+            console.log(data);
+
+        
         
     }
     return (

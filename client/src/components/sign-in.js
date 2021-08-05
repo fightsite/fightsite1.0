@@ -1,41 +1,75 @@
 import React, { useState } from 'react';
-import { GET_USER } from '../utils/queries';
 import {useQuery, useMutation} from '@apollo/client'
-import { ADD_USER } from '../utils/mutations';
+import { ADD_USER, USER_LOGIN } from '../utils/mutations';
+import { GET_USER } from '../utils/queries';
+import Auth from '../utils/auth';
+import { createSourceEventStream } from 'graphql';
 
-function SignIn ({ user, setUser, newUser, setNewUser}) {
+function SignIn ({ user, setUser}) {
+    const [formState, setFormState] = useState({username: '', password: '',  email: ''})
     const [addUser, {error}] = useMutation(ADD_USER);
+    const [login, {err}] = useMutation(USER_LOGIN);
+    
+    
     const admin = {
         email: "pete@pete.com",
         password: 'peter'
     }
-    // const [user, setUser] = useState({email: "", password: ""});
-    const ExistingLoginHandler = e => {
-        e.preventDefault();
-        console.log(e.target.email.value);
-        const logInEmail = e.target.email.value;
-        const logInPassword = e.target.password.value;
-        
-        
-    }
-    
-    const newUserSignup = async event => {
-        event.preventDefault();
-        
-        const username = event.target.username.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
 
+
+    const handleNewUser = e => {
+        const { name, value } = e.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    } 
+    const handleLogin = e => {
+        const { name, value } = e.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    }
+    const ExistingLoginHandler = async e => {
+        e.preventDefault();
+        
         try {
-            const { data } = await addUser({
-                variables: { username, email, password}
+            const { data } = await login({
+                variables: { ...formState } 
             });
-            console.log(data);
+            Auth.login(data.login.token)
+            console.log(data.login.user.email)
+            setUser({email: data.login.user.email, balance: data.login.user.balance});
+            
+            
+
         }
         catch(e) {
             console.error(e);
         }
-        console.log(username, email, password)
+        setFormState({email: '', password: ''});
+    }
+    
+    const newUserSignup = async (e) => {
+        e.preventDefault();
+        // const username = event.target.username.value;
+        // const email = event.target.email.value;
+        // const password = event.target.password.value;
+
+        try {
+           const { data } = await addUser({
+               variables: { ...formState }
+           })
+           Auth.login(data.addUser.token);
+           setUser({email: data.addUser.user.email, balance: data.addUser.user.balance});
+        }
+        catch(e) {
+            console.error(e);
+        }
+        // console.log(username, email, password)
         // onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} 
         //onChange={e => setNewUser({...newUser, email: e.target.value})}  value={newUser.email}
     }
@@ -53,11 +87,25 @@ function SignIn ({ user, setUser, newUser, setNewUser}) {
                 <form onSubmit={ExistingLoginHandler} className="form">
 
                     <label for="email"><b>Email:</b></label>
-                    <span><input id="existingUser" type="text" placeholder="Enter email" name="email"  required/></span>
+                    <span><input 
+                    id="existingUser" 
+                    type="email" 
+                    placeholder="Enter email" 
+                    name="email"
+                    value={formState.email} 
+                    onChange={handleLogin}
+                    required/></span>
 
 
                     <label for="password"><b className="pass-title">Password:</b></label>
-                    <span><input type="password" placeholder="Enter password" name="password" autoComplete="off"  required/></span>
+                    <span><input 
+                    type="password" 
+                    placeholder="Enter password" 
+                    name="password"
+                    value={formState.password} 
+                    autoComplete="off"
+                    onChange={handleLogin}  
+                    required/></span>
                     <div className="btn-div">
                         <button id="login" className="signIn-btns" type="submit">Login</button>
                     </div>
@@ -77,14 +125,33 @@ function SignIn ({ user, setUser, newUser, setNewUser}) {
 
                 <form onSubmit={newUserSignup} className="form">
                 <label for="username"><b className="pass-title">Create Username:</b></label>
-                    <span><input type="password" placeholder="Enter username" name="username" required/></span>
+                    <span><input 
+                    type="username" 
+                    placeholder="Enter username" 
+                    name="username" 
+                    value={formState.username}
+                    onChange={handleNewUser}
+                    required/></span>
 
 
                     <label for="email" className="pass-title"><b>Email:</b></label>
-                    <span><input type="text" placeholder="Enter email" name="email" required/></span>
+                    <span><input 
+                    type="email" 
+                    placeholder="Enter email" 
+                    name="email" 
+                    value={formState.email}
+                    onChange={handleNewUser}
+                    required/></span>
 
                     <label for="password"><b className="pass-title">Password:</b></label>
-                    <span><input type="password" placeholder="Enter password" name="password" autoComplete="off" onChange={e => setNewUser({...newUser, password: e.target.value})}  value={newUser.password} required/></span>
+                    <span><input 
+                    type="password" 
+                    placeholder="Enter password" 
+                    name="password"
+                    value={formState.password} 
+                    autoComplete="off" 
+                    onChange={handleNewUser}
+                    required/></span>
                     <div className="btn-div">
                         <button className="signIn-btns" type="submit">Create Account</button>
                     </div>
