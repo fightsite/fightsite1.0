@@ -23,7 +23,7 @@ const userSchema = new Schema({
   balance: {
     type: Number,
     required: true,
-    default: 10,
+    default: 5000,
   },
   // orders: [Order.schema],
 });

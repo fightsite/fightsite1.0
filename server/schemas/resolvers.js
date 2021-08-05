@@ -25,12 +25,12 @@ const resolvers = {
 
       console.log(args);
       const updatedUser = await User.findOneAndUpdate(
-         args.email, args.balance,{ new: true});
+         {email: args.email}, {balance: args.balance}, { new: true});
 
       if(!updatedUser) {
         throw new AuthenticationError("No user");
       }
-     
+      console.log(updatedUser);
       return updatedUser;
         
       

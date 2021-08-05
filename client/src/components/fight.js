@@ -5,44 +5,33 @@ import { gql } from '@apollo/client';
 
 function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}){
     const [updateUser, {error}] = useMutation(UPDATE_USER);
-    const [formState, setFormState] = useState({email: user.email, balance: user.balance})
-    // console.log(currentFighter);
-    // const userBet = e.target.bet.value;
-    // const currentBalance = user.balance;
-    // const currentUser = user.email;
+    const [formState, setFormState] = useState({email: user.email, balance: user.balance});
+ 
     
-
-    const placeBetHandler = async e => {
-        const { name, value } = e.target;
-        console.log(e.target)
-        const userBalance = 10;
-        let updateBalance = userBalance - value;
-        console.log(updateBalance)
-        await setFormState(prevFormState => {
-            return {
-            ...prevFormState,
-            balance: updateBalance
-            }
-        })
-        console.log(formState.balance)
-        
-        
-        
-    }
-  
     const submitBet = async e => {
         e.preventDefault();
+        console.log(user.balance)
+        const currentBalance = user.balance;
+        const userBet = e.target.balance.value;
+        const updatedBalance = currentBalance - userBet;
+        const userID = user.username 
+        console.log(userID);
+        
         try {
             
-            const { data } = await updateUser({
-                variables: { ...formState }
+            const {data} = await updateUser({
+                variables: { email: user.email, balance: updatedBalance }
             });
-            console.log(data);
-            setUserBalance({ balance: data.updateUser.balance})
+            setUserBet({balance: userBet});
+            setUserBalance({email: data.updateUser.email, balance: data.updateUser.balance, wager: e.target.balance.value});
+            
+            
         }
         catch(e) {
             console.log(e);
         }
+
+        
     }
         return (
             <main className='poster-holder'>
@@ -70,7 +59,7 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
                     <h3>Place Your Bet Here!</h3>
                 </div>
                 <div>
-                    <input type="text" placeholder="$$" name="balance" />
+                    <input type="number" placeholder="$$" name="balance" />
                 </div>
                 <div>
                     <button  type="submit" className='submit-btn'> Sumbit!</button>
@@ -80,18 +69,9 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
         </main>
     )
 }
-//  onChange={placeBetHandler} value={formState.value}
+
 export default Fight;
-// try {
-//     const { data } = await updateUser({
-//         email: user.email,
-//         balance: 3
-//     });
-//     console.log(data.updateUser.balance);
-// }
-// catch(e) {
-//     console.error(e, 'ok');
-// }
+
 
 
 

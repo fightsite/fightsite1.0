@@ -7,6 +7,7 @@ export const USER_LOGIN = gql`
             user{
                 _id
                 email
+                username
                 balance
             }
         }

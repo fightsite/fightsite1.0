@@ -10,11 +10,7 @@ function SignIn ({ user, setUser}) {
     const [addUser, {error}] = useMutation(ADD_USER);
     const [login, {err}] = useMutation(USER_LOGIN);
     
-    
-    const admin = {
-        email: "pete@pete.com",
-        password: 'peter'
-    }
+   
 
 
     const handleNewUser = e => {
@@ -35,14 +31,13 @@ function SignIn ({ user, setUser}) {
     }
     const ExistingLoginHandler = async e => {
         e.preventDefault();
-        
+    
         try {
             const { data } = await login({
                 variables: { ...formState } 
             });
             Auth.login(data.login.token)
-            console.log(data.login.user._id)
-            setUser({id: data.login.user._id, email: data.login.user.email, balance: data.login.user.balance });
+            setUser({id: data.login.user._id, username: data.login.user.username, email: data.login.user.email, balance: data.login.user.balance });
             
             
 
@@ -65,6 +60,7 @@ function SignIn ({ user, setUser}) {
            })
            Auth.login(data.addUser.token);
            setUser({email: data.addUser.user.email, balance: data.addUser.user.balance});
+           console.log(data.addUser.user);
         }
         catch(e) {
             console.error(e);
