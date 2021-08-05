@@ -22,9 +22,11 @@ const resolvers = {
       return { token, user };
     },
     updateUser: async (parent, args) => {
+
       console.log(args);
       const updatedUser = await User.findOneAndUpdate(
          args.email, args.balance,{ new: true});
+
       if(!updatedUser) {
         throw new AuthenticationError("No user");
       }
@@ -36,7 +38,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      console.log('seeing this');
+      
       if (!user) {
         throw new AuthenticationError("Incorrect credentials");
       }
