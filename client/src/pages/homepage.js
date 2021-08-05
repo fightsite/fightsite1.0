@@ -12,7 +12,7 @@ import { useState } from 'react'
 function HomePage({}) {
     
 
-    const [user, setUser] = useState({email: "", password: "", balance: ""});
+    const [user, setUser] = useState({id: "", email: "", password: "", balance: ""});
     const [newUser, setNewUser] = useState({username: "", email: "", password: ""});
     const [currentFighter, setCurrentFighter] = useState({name: ""});
     const [userBet, setUserBet] = useState("");
