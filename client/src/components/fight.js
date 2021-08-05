@@ -11,88 +11,46 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
     // const currentBalance = user.balance;
     // const currentUser = user.email;
     
-    const placeBetHandler = e => {
-        const { name, value } = e.target;
-        const userBalance = 10;
-        const updateBalance = userBalance - value;
+    // const { data } = updateUser({
+    //     variables : {
+    //         email: "pete@pete.com",
+    //         balance: 4
+    //     }
+    // });
+    
+    // console.log(data);
+    // const placeBetHandler = e => {
+    //     const { name, value } = e.target;
+    //     const userBalance = 10;
+    //     const updateBalance = userBalance - value;
         
-        setUserBalance({
-            ...user,
-            [name]: updateBalance
-        });
+    //     setFormState({
+    //         ...formState,
+    //         [name]: updateBalance
+    //     });
         
-    }
+    // }
     const submitBet = async e => {
         e.preventDefault();
-        console.log(user.balance);
+        console.log(user.email, user.balance);
+        const userEmail = user.email;
+        const balance = user.balance
+        // console.log(formState);
         try {
-            const { data } = await updateUser({email: user.email, balance: user.balance});
-            console.log(data);
+            const { data } = updateUser({ 
+                variables: {
+                    email: userEmail,
+                    balance: balance
+                }
+            });
+           
         }
         catch(e) {
-            console.error(e);
+            console.log(e);
         }
-        // try {
-        //     const { data } = await updateUser({
-        //         email: user.email,
-        //         balance: 3
-        //     });
-        //     console.log(data.updateUser.balance);
-        // }
-        // catch(e) {
-        //     console.error(e, 'ok');
-        // }
-        
     }
-
-        
-        // try {
-        //     const { data } = await updateUser({
-                
-        //     })
-        // }
-        // const updateBalanceFetch = async (currentUser, updatedBalance) => {
-        //     const query =JSON.stringify({
-        //         query: `mutation {
-        //             updateUser(
-        //                 email: ${currentUser},
-        //                 balance: ${updatedBalance}) { email }
-        //             )
-        //         }`
-        //     });
-        //     const response = await fetch('http://localhost:3001/graphql', {
-        //         headers: { 'content=type': 'application/json'},
-        //         method: 'POST',
-        //         body: query,
-        //     });
-        //     const responseJson = await response.json();
-        //     console.log(responseJson.data)
-        // }
-        // updateBalanceFetch(currentUser, updatedBalance);
-        // try {
-        //     const { data } =  updateUser({
-        //         variables: {
-        //             email: currentUser,
-        //             balance: updatedBalance
-        //         }
-        //     });
-        //     console.log(data);
-        // }
-        // catch(e) {
-        //     console.error({e})
-        // }
-        // keep track of what the user bets
-        // setUserBet(userBet);
-        
-       
-            
-            
-
-        
-        
-    
-    return (
-        <main className='poster-holder'>
+        return (
+            <main className='poster-holder'>
             <div className='poster'>
                 <div className="poster-top">
                     <h2>EXTRA! EXTRA! EXTRA!</h2>
@@ -117,7 +75,7 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
                     <h3>Place Your Bet Here!</h3>
                 </div>
                 <div>
-                    <input onChange={placeBetHandler}type="text" placeholder="$$" name="balance" />
+                    <input type="text" placeholder="$$" name="balance" />
                 </div>
                 <div>
                     <button  type="submit" className='submit-btn'> Sumbit!</button>
@@ -127,5 +85,19 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
         </main>
     )
 }
-
+//  onChange={placeBetHandler} value={formState.value}
 export default Fight;
+// try {
+//     const { data } = await updateUser({
+//         email: user.email,
+//         balance: 3
+//     });
+//     console.log(data.updateUser.balance);
+// }
+// catch(e) {
+//     console.error(e, 'ok');
+// }
+
+
+
+

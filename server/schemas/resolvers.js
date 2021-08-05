@@ -21,13 +21,11 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUser: async (parent, {email, balance}) => {
-      console.log('okay');
-      const updatedUser = await User.findOneAndUpdate(
-        { email: email },
-        {$set: {balance: balance}}, 
-        { new: true}
-        );
+    updateUser: async (parent, args) => {
+      // const filter = {email: args.email}
+      // const update = {$set: {balance: args.balance}}
+      const updatedUser = await User.findOneAndUpdate({email: args.email}, {$set: {balance: args.balance}}, {new: true});
+      
       if(!updatedUser) {
         throw new AuthenticationError("No user");
       }
@@ -44,7 +42,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      console.log('seeing this');
+      
       if (!user) {
         throw new AuthenticationError("Incorrect credentials");
       }
