@@ -5,29 +5,39 @@ import { gql } from '@apollo/client';
 
 function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}){
     const [updateUser, {error}] = useMutation(UPDATE_USER);
-    const [formState, setFormState] = useState({email: user.email, balance: ''})
+    const [formState, setFormState] = useState({email: user.email, balance: user.balance})
     // console.log(currentFighter);
     // const userBet = e.target.bet.value;
     // const currentBalance = user.balance;
     // const currentUser = user.email;
     
-    const placeBetHandler = e => {
+    const placeBetHandler = async e => {
         const { name, value } = e.target;
+        console.log(e.target)
         const userBalance = 10;
-        const updateBalance = userBalance - value;
+        let updateBalance = userBalance - value;
+        console.log(updateBalance)
+        await setFormState(prevFormState => {
+            return {
+            ...prevFormState,
+            balance: updateBalance
+            }
+        })
+        console.log(formState.balance)
         
-        setUserBalance({
-            ...user,
-            [name]: updateBalance
-        });
+        
         
     }
+  
     const submitBet = async e => {
         e.preventDefault();
-        console.log(user.balance);
         try {
-            const { data } = await updateUser({email: user.email, balance: user.balance});
+            
+            const { data } = await updateUser({
+                variables: { ...formState }
+            });
             console.log(data);
+            setUserBalance({ balance: data.updateUser.user.balance})
         }
         catch(e) {
             console.error(e);

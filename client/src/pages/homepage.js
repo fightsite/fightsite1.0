@@ -15,23 +15,23 @@ function HomePage({}) {
     const [user, setUser] = useState({id: "", email: "", password: "", balance: ""});
     const [newUser, setNewUser] = useState({username: "", email: "", password: ""});
     const [currentFighter, setCurrentFighter] = useState({name: ""});
-    const [userBet, setUserBet] = useState("");
+    const [userBet, setUserBet] = useState({balance:""});
     const [randomFighter, setRandomFighter] = useState({name: ""});
     const [error, setError] = useState("");
     
     console.log(userBet);
     console.log(user);
     let pageContent; 
-    if(user.email==="" && currentFighter.name==="" && userBet === "") {
+    if(user.email==="" && currentFighter.name==="" && userBet.balance === "") {
         pageContent = <SignIn user={user} setUser={setUser} newUser={newUser} setNewUser={setNewUser} ></SignIn>
         console.log(randomFighter);
        
     }
-    else if(user.email != "" && currentFighter.name === "" && userBet === "") {
+    else if(user.email != "" && currentFighter.name === "" && userBet.balance === "") {
         pageContent = <ChooseFighter currentFighter={currentFighter} setCurrentFighter={setCurrentFighter} setRandomFighter={setRandomFighter}></ChooseFighter>
 
     }
-    else if(user.email != "" && currentFighter.name != "" && userBet === "") {
+    else if(user.email != "" && currentFighter.name != "" && userBet.balance === "") {
         pageContent = <Fight user={user} setUserBalance={setUser} setUserBet={setUserBet} currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
     }
     else {
