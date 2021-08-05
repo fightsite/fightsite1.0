@@ -7,7 +7,7 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
     const [updateUser, {error}] = useMutation(UPDATE_USER);
     const [formState, setFormState] = useState({email: user.email, balance: user.balance});
  
-    console.log(user);
+    
     const submitBet = async e => {
         e.preventDefault();
         console.log(user.balance)
@@ -22,8 +22,8 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
             const {data} = await updateUser({
                 variables: { email: user.email, balance: updatedBalance }
             });
-            console.log(user.email, updatedBalance);
-            console.log(data)
+            setUserBet({balance: userBet});
+            setUserBalance({email: data.updateUser.email, balance: data.updateUser.balance, wager: e.target.balance.value});
             
             
         }

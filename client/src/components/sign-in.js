@@ -31,14 +31,14 @@ function SignIn ({ user, setUser}) {
     }
     const ExistingLoginHandler = async e => {
         e.preventDefault();
-        
+    
         try {
             const { data } = await login({
                 variables: { ...formState } 
             });
             Auth.login(data.login.token)
             setUser({id: data.login.user._id, username: data.login.user.username, email: data.login.user.email, balance: data.login.user.balance });
-            // console.log(data);
+            
             
 
         }
