@@ -23,14 +23,14 @@ const resolvers = {
     },
     updateUser: async (parent, args) => {
 
-      console.log(args);
-      const updatedUser = await User.findOneAndUpdate(
-         args.email, args.balance,{ new: true});
+      console.log(parent);
+      const updatedUser = await User.findByIdAndUpdate(
+         args._id, args.balance,{ new: true});
 
       if(!updatedUser) {
         throw new AuthenticationError("No user");
       }
-     
+      console.log(updatedUser);
       return updatedUser;
         
       
