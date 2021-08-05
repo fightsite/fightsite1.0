@@ -35,7 +35,7 @@ function HomePage({}) {
         pageContent = <Fight user={user} setUserBalance={setUser} setUserBet={setUserBet} currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
     }
     else {
-        pageContent = <Results user={user} setUser={setUser} userBet={userBet} ></Results>
+        pageContent = <Results user={user} setUserBalance={setUser} userBet={userBet} setCurrentFighter={setCurrentFighter} ></Results>
     }
 
     

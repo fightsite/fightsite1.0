@@ -1,9 +1,10 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../utils/mutations'; 
-function Results(user, setUser, userBet){
+function Results(user, setUser, userBet, setCurrentFighter){
     const [updateUser, {error}] = useMutation(UPDATE_USER);
-
+    const money = parseInt(user.user.wager)
+    console.log(money)
     const quips = [
         "Holy Moly, that was a close one!",
         "Good Effort!",
@@ -34,23 +35,30 @@ function Results(user, setUser, userBet){
     let resultChosen = results[randomResult];
     let chosenBet;
     // console.log(user.user.wager);
-    const endGame = () => {
-        const userWager = user.user.wager;
+    const endGame = async e => {
+        if(resultChosen === results[0]) {
+            chosenBet = bet[0];
+            try {
+                const {data} = await updateUser({
+                    variables: { email: user.user.email, balance: money}
+                });
+                console.log(data.updateUser.balance);
+                // setUser({...user, }
 
-            const {data} = updateUser({
-                variables: { email: user.user.email, balance: 20}
-            });
-            console.log(data);
+            }
+            catch(e) {
+                console.error(e)
+            }
+        }
+        else{
+            chosenBet = bet[1]
+        }
+        
+        
+
 
             
     }  
-    if(resultChosen === results[0]) {
-        chosenBet = bet[0];
-        endGame();
-    }
-    else{
-        chosenBet = bet[1]
-    }
         
         return (
             <div className='results'>
@@ -64,7 +72,7 @@ function Results(user, setUser, userBet){
                     <h2>{chosenBet} </h2>
                 </div>
                 <div className="results-btn-holder">
-                    <button className="results-btn">Play Again</button>
+                    <button onClick={endGame} className="results-btn">Process Results</button>
                 </div>
             </div>
         )
