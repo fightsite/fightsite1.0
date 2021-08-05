@@ -6,7 +6,7 @@ import Auth from '../utils/auth';
 import { createSourceEventStream } from 'graphql';
 
 function SignIn ({ user, setUser}) {
-    const [formState, setFormState] = useState({username: '', password: '',  email: ''})
+    const [formState, setFormState] = useState({username: '', password: '', email: ''})
     const [addUser, {error}] = useMutation(ADD_USER);
     const [login, {err}] = useMutation(USER_LOGIN);
     
@@ -99,6 +99,7 @@ function SignIn ({ user, setUser}) {
 
                     <label for="password"><b className="pass-title">Password:</b></label>
                     <span><input 
+                    id="firstPassword"
                     type="password" 
                     placeholder="Enter password" 
                     name="password"
@@ -145,6 +146,7 @@ function SignIn ({ user, setUser}) {
 
                     <label for="password"><b className="pass-title">Password:</b></label>
                     <span><input 
+                    id="secondPassword"
                     type="password" 
                     placeholder="Enter password" 
                     name="password"

@@ -573,11 +573,8 @@ code {
 
 /* Monitor size + */
 @media only screen and (max-width: 1500px){
-  .signIn-form-main-container1 {
+  .signIn-form-main-container {
     width:60%;
-  }
-  .signIn-form-main-container2 {
-    width: 60%;
   }
   .poster {
     width: 35%;
@@ -586,22 +583,8 @@ code {
 
 /* large phones and tablets */
 @media only screen and (max-width: 1200px){
-  .signIn-form-main-container1 {
+  .signIn-form-main-container {
     width:70%;
-  }
-  .signIn-form-main-container2 {
-    width: 70%;
-
-  }
-}
-
-/* large phones and tablets */
-@media only screen and (max-width: 1200px){
-  .signIn-form-main-container1 {
-    width:70%;
-  }
-  .signIn-form-main-container2 {
-    width: 70%;
   }
   .poster {
     width: 45%;
@@ -618,11 +601,8 @@ code {
   .user-info-inside h2 {
     font-size: 20px;
   }
-  .signIn-form-main-container1 {
+  .signIn-form-main-container {
     width:80%;
-  }
-  .signIn-form-main-container2 {
-    width: 80%;
   }
   .poster {
     width: 70%;
@@ -647,13 +627,9 @@ code {
   }
 }
 @media only screen and (max-width: 425px){
-  .signIn-form-main-container1 {
+  .signIn-form-main-container {
     width:80%;
   }
-  .signIn-form-main-container2 {
-    width: 80%;
-  }
-
 }
 
 
