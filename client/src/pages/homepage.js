@@ -12,19 +12,19 @@ import { useState } from 'react'
 function HomePage({}) {
     
 
-    const [user, setUser] = useState({id: "", email: "", password: "", balance: ""});
-    const [newUser, setNewUser] = useState({username: "", email: "", password: ""});
+    const [user, setUser] = useState({id: "", username: "", email: "", password: "", balance: ""});
+
     const [currentFighter, setCurrentFighter] = useState({name: ""});
     const [userBet, setUserBet] = useState({balance:""});
     const [randomFighter, setRandomFighter] = useState({name: ""});
     const [error, setError] = useState("");
-    
-    console.log(userBet);
-    console.log(user);
+    console.log(user.username);
+    // console.log(userBet);
+    // console.log(user);
     let pageContent; 
     if(user.email==="" && currentFighter.name==="" && userBet.balance === "") {
-        pageContent = <SignIn user={user} setUser={setUser} newUser={newUser} setNewUser={setNewUser} ></SignIn>
-        console.log(randomFighter);
+        pageContent = <SignIn user={user} setUser={setUser} ></SignIn>
+        // console.log(randomFighter);
        
     }
     else if(user.email != "" && currentFighter.name === "" && userBet.balance === "") {
@@ -39,10 +39,10 @@ function HomePage({}) {
     }
 
     
-    console.log(currentFighter);
+    // console.log(currentFighter);
         return (
             <div className='flex-project'>
-                <Header></Header>
+                <Header userBalance={user} ></Header>
 
                 {/* <SignIn></SignIn> */}
                 {/* <SignIn user={user} setUser={setUser} LogIn={login} signUp={createUser} error={error} ></SignIn> */}
