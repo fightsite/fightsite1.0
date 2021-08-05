@@ -1,8 +1,9 @@
 import React from 'react';
+import { useMutation } from '@apollo/client';
+import { UPDATE_USER } from '../utils/mutations'; 
+function Results(user, setUser, userBet){
+    const [updateUser, {error}] = useMutation(UPDATE_USER);
 
-function Results(){
-
-//an array to hold one liners
     const quips = [
         "Holy Moly, that was a close one!",
         "Good Effort!",
@@ -14,50 +15,59 @@ function Results(){
         "Thanks for shopping at *#@-whooping R-US",
         "You seem like more of an indoor kitty cat"
         ]
-    //using math.random to go through one liners  
+    // console.log(moneyWon)
     let randomQuip = Math.floor(Math.random() * quips.length);
     let quipChosen  = quips[randomQuip];
-        
+    //using math.random to go through results
     //an array to hold results
     const results = [
         'Winner',
         'Loser'
         
     ]
-    
     const bet = [
         'You just won $',
         'You just lost $'
     ]
-
-    //using math.random to go through results
+    
     let randomResult = Math.floor(Math.random() * results.length);
-    let resultChosen = results[randomResult]
+    let resultChosen = results[randomResult];
     let chosenBet;
+    // console.log(user.user.wager);
+    const endGame = () => {
+        const userWager = user.user.wager;
 
+            const {data} = updateUser({
+                variables: { email: user.user.email, balance: 20}
+            });
+            console.log(data);
+
+            
+    }  
     if(resultChosen === results[0]) {
         chosenBet = bet[0];
+        endGame();
     }
     else{
         chosenBet = bet[1]
     }
-
-    return (
-        <div className='results'>
-            <div className='quip'> 
-                <h2> {quipChosen} </h2>
+        
+        return (
+            <div className='results'>
+                <div className='quip'> 
+                    <h2> {quipChosen} </h2>
+                </div>
+                <div className="win-or-lose">
+                    <h2>{resultChosen}!!!!</h2>
+                </div>
+                <div className="money">
+                    <h2>{chosenBet} </h2>
+                </div>
+                <div className="results-btn-holder">
+                    <button className="results-btn">Play Again</button>
+                </div>
             </div>
-            <div className="win-or-lose">
-                <h2>{resultChosen}!!!!</h2>
-            </div>
-            <div className="money">
-                <h2>{chosenBet} </h2>
-            </div>
-            <div className="results-btn-holder">
-                <button className="results-btn">Play Again</button>
-            </div>
-         </div>
-    )
+        )
 }
 
 export default Results;

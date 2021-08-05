@@ -12,14 +12,14 @@ import { useState } from 'react'
 function HomePage({}) {
     
 
-    const [user, setUser] = useState({id: "", username: "", email: "", password: "", balance: ""});
+    const [user, setUser] = useState({id: "", username: "", email: "", password: "", balance: "", wager: ""});
 
     const [currentFighter, setCurrentFighter] = useState({name: ""});
     const [userBet, setUserBet] = useState({balance:""});
     const [randomFighter, setRandomFighter] = useState({name: ""});
-    const [error, setError] = useState("");
-    console.log(user.username);
-    // console.log(userBet);
+    // const [error, setError] = useState("");
+    
+    console.log(userBet);
     // console.log(user);
     let pageContent; 
     if(user.email==="" && currentFighter.name==="" && userBet.balance === "") {
@@ -35,7 +35,7 @@ function HomePage({}) {
         pageContent = <Fight user={user} setUserBalance={setUser} setUserBet={setUserBet} currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
     }
     else {
-        pageContent = <Results></Results>
+        pageContent = <Results user={user} setUser={setUser} userBet={userBet} ></Results>
     }
 
     
