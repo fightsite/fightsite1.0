@@ -62,7 +62,7 @@ function Fight({user, setUserBalance, setUserBet, currentFighter, randomFighter}
                     <input type="number" placeholder="$$" name="balance" />
                 </div>
                 <div>
-                    <button  type="submit" className='submit-btn'> Sumbit!</button>
+                    <button  type="submit" className='submit-btn'> Submit!</button>
                 </div>
             </form>
             </div>

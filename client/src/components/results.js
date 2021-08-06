@@ -72,7 +72,7 @@ function Results(user, setUser, userBet, setCurrentFighter){
                     <h2>{chosenBet} </h2>
                 </div>
                 <div className="results-btn-holder">
-                    <button onClick={endGame} className="results-btn">Process Results</button>
+                    <button onClick={endGame} className="results-btn">Submit</button>
                 </div>
             </div>
         )
