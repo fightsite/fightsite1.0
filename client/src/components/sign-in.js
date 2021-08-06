@@ -1,41 +1,78 @@
 import React, { useState } from 'react';
+import {useQuery, useMutation} from '@apollo/client'
+import { ADD_USER, USER_LOGIN } from '../utils/mutations';
+import { GET_USER } from '../utils/queries';
+import Auth from '../utils/auth';
+import { createSourceEventStream } from 'graphql';
 
-
-function SignIn ({ user, setUser, error }) {
+function SignIn ({ user, setUser}) {
+    const [formState, setFormState] = useState({username: '', password: '', email: ''})
+    const [addUser, {error}] = useMutation(ADD_USER);
+    const [login, {err}] = useMutation(USER_LOGIN);
     
-    const admin = {
-        email: "pete@pete.com",
-        password: 'peter'
+   
+
+
+    const handleNewUser = e => {
+        const { name, value } = e.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    } 
+    const handleLogin = e => {
+        const { name, value } = e.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        });
     }
-    // const [user, setUser] = useState({email: "", password: ""});
-    const [newUser, setNewUser] = useState({ username: "", email: "", password: ""});
-
-    const existingLoginHandler = e => {
+    const ExistingLoginHandler = async e => {
         e.preventDefault();
-        console.log(e.target.email.value);
-        const logInEmail = e.target.email.value;
-        const logInPassword = e.target.password.value;
-
-        if(logInEmail === admin.email && logInPassword === admin.password) {
-            setUser({email: e.target.email.value, password: e.target.password.value});
+    
+        try {
+            const { data } = await login({
+                variables: { ...formState } 
+            });
+            Auth.login(data.login.token)
+            setUser({id: data.login.user._id, username: data.login.user.username, email: data.login.user.email, balance: data.login.user.balance });
             
+            
+
         }
-        else {
-            window.alert('Wrong password bozo!');
+        catch(e) {
+            console.error(e);
         }
-        
-        
-        
-        // LogIn(user)
+        setFormState({email: '', password: ''});
+    }
+    
+    const newUserSignup = async (e) => {
+        e.preventDefault();
+        // const username = event.target.username.value;
+        // const email = event.target.email.value;
+        // const password = event.target.password.value;
+
+        try {
+           const { data } = await addUser({
+               variables: { ...formState }
+           })
+           Auth.login(data.addUser.token);
+           setUser({email: data.addUser.user.email, balance: data.addUser.user.balance});
+           console.log(data.addUser.user);
+        }
+        catch(e) {
+            console.error(e);
+        }
+        // console.log(username, email, password)
+        // onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} 
+        //onChange={e => setNewUser({...newUser, email: e.target.value})}  value={newUser.email}
     }
 
-    const newUserSignup = e => {
-        e.preventDefault();
-        console.log('signupjs');
-        
-    }
-    // onChange={e => setUser({...user, email: e.target.value})} value={user.email}
-    // onChange={e => setUser({...user, password: e.target.value})} value={user.password}
+    // const { data } = useQuery(GET_USER);
+    // const users = data?.user || [];
+    // console.log(users);
     return (
     <main className="login-main-div">  
         <section className="signIn-form-main-container">
@@ -43,14 +80,29 @@ function SignIn ({ user, setUser, error }) {
                 <h2>Sign in to start the fights!</h2>
             </div>
             <div className="form-info">
-                <form onSubmit={existingLoginHandler} className="form">
+                <form onSubmit={ExistingLoginHandler} className="form">
 
                     <label for="email"><b>Email:</b></label>
-                    <span><input id="existingUser" type="text" placeholder="Enter email" name="email"  required/></span>
+                    <span><input 
+                    id="existingUser" 
+                    type="email" 
+                    placeholder="Enter email" 
+                    name="email"
+                    value={formState.email} 
+                    onChange={handleLogin}
+                    required/></span>
 
 
                     <label for="password"><b className="pass-title">Password:</b></label>
-                    <span><input type="password" placeholder="Enter password" name="password" autoComplete="off"  required/></span>
+                    <span><input 
+                    id="firstPassword"
+                    type="password" 
+                    placeholder="Enter password" 
+                    name="password"
+                    value={formState.password} 
+                    autoComplete="off"
+                    onChange={handleLogin}  
+                    required/></span>
                     <div className="btn-div">
                         <button id="login" className="signIn-btns" type="submit">Login</button>
                     </div>
@@ -70,14 +122,34 @@ function SignIn ({ user, setUser, error }) {
 
                 <form onSubmit={newUserSignup} className="form">
                 <label for="username"><b className="pass-title">Create Username:</b></label>
-                    <span><input type="text" placeholder="Enter username" name="username" onChange={e => setNewUser({...newUser, username: e.target.value})}  value={newUser.username} required/></span>
+                    <span><input 
+                    type="username" 
+                    placeholder="Enter username" 
+                    name="username" 
+                    value={formState.username}
+                    onChange={handleNewUser}
+                    required/></span>
 
 
                     <label for="email" className="pass-title"><b>Email:</b></label>
-                    <span><input type="text" placeholder="Enter email" name="email" onChange={e => setNewUser({...newUser, email: e.target.value})}  value={newUser.email} required/></span>
+                    <span><input 
+                    type="email" 
+                    placeholder="Enter email" 
+                    name="email" 
+                    value={formState.email}
+                    onChange={handleNewUser}
+                    required/></span>
 
                     <label for="password"><b className="pass-title">Password:</b></label>
-                    <span><input type="password" placeholder="Enter password" name="password" autoComplete="off" onChange={e => setNewUser({...newUser, password: e.target.value})}  value={newUser.password} required/></span>
+                    <span><input 
+                    id="secondPassword"
+                    type="password" 
+                    placeholder="Enter password" 
+                    name="password"
+                    value={formState.password} 
+                    autoComplete="off" 
+                    onChange={handleNewUser}
+                    required/></span>
                     <div className="btn-div">
                         <button className="signIn-btns" type="submit">Create Account</button>
                     </div>

@@ -12,36 +12,37 @@ import { useState } from 'react'
 function HomePage({}) {
     
 
-    const [user, setUser] = useState({email: "", password: ""});
+    const [user, setUser] = useState({id: "", username: "", email: "", password: "", balance: "", wager: ""});
+
     const [currentFighter, setCurrentFighter] = useState({name: ""});
-    const [userBet, setUserBet] = useState("");
+    const [userBet, setUserBet] = useState({balance:""});
     const [randomFighter, setRandomFighter] = useState({name: ""});
-    const [error, setError] = useState("");
+    // const [error, setError] = useState("");
     
     console.log(userBet);
-
+    // console.log(user);
     let pageContent; 
-    if(user.email==="" && currentFighter.name==="" && userBet === "") {
-        pageContent = <SignIn user={user} setUser={setUser} error={error} ></SignIn>
-        console.log(randomFighter);
+    if(user.email==="" && currentFighter.name==="" && userBet.balance === "") {
+        pageContent = <SignIn user={user} setUser={setUser} ></SignIn>
+        // console.log(randomFighter);
        
     }
-    else if(user.email != "" && currentFighter.name === "" && userBet === "") {
+    else if(user.email != "" && currentFighter.name === "" && userBet.balance === "") {
         pageContent = <ChooseFighter currentFighter={currentFighter} setCurrentFighter={setCurrentFighter} setRandomFighter={setRandomFighter}></ChooseFighter>
 
     }
-    else if(user.email != "" && currentFighter.name != "" && userBet === "") {
-        pageContent = <Fight setUserBet={setUserBet} currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
+    else if(user.email != "" && currentFighter.name != "" && userBet.balance === "") {
+        pageContent = <Fight user={user} setUserBalance={setUser} setUserBet={setUserBet} currentFighter={currentFighter} randomFighter={randomFighter} ></Fight>
     }
     else {
-        pageContent = <Results></Results>
+        pageContent = <Results user={user} setUserBalance={setUser} userBet={userBet} setCurrentFighter={setCurrentFighter} ></Results>
     }
 
     
-    console.log(currentFighter);
+    // console.log(currentFighter);
         return (
             <div className='flex-project'>
-                <Header></Header>
+                <Header userBalance={user} ></Header>
 
                 {/* <SignIn></SignIn> */}
                 {/* <SignIn user={user} setUser={setUser} LogIn={login} signUp={createUser} error={error} ></SignIn> */}

@@ -1,19 +1,33 @@
 import React, {useState} from 'react';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import ChooseBets from './components/choose-bet';
-// import ChooseFighter from './components/choose-fighter';
-// import Fight from './components/fight';
-// import Login from './components/login';
-// import Results from './components/results';
-// import FighterCards from './components/fightercards';
-// import Cards from './components/cards';
-// import Header from './components/header';
-// import Footer from './components/footer';
-// import Animation from './components/animation';
-// import SignIn from './components/sign-in';
-import HomePage from './pages/homepage';
-import FightPage from './pages/fightpage';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink
+} from '@apollo/client'
+import { setContext } from '@apollo/client/link/context';
 
+import HomePage from './pages/homepage';
+
+// const httpLink = createHttpLink({
+//   uri: '/graphql'
+// })
+const authorize = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id-token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    }
+  }
+})
+const client = new ApolloClient({
+  uri: "http://localhost:3001/graphql",
+  cache: new InMemoryCache(),
+  // headers: {
+  //   authorization: localStorage.getItem('token') || '',
+  // }
+})
 function App() {
   const [user, setUser] = useState({email: ""});
   const [error, setError] = useState("");
@@ -21,20 +35,12 @@ function App() {
 
 
   return (
-    // <div className='flex-project'>
-    //   <Header></Header>
-    //   <SignIn></SignIn>
-    //   {/* <ChooseBets></ChooseBets> */}
-    //   {/* <ChooseFighter></ChooseFighter> */}
-    //   {/* <ChooseFighter></ChooseFighter>
-    //   <Fight></Fight>
-    //   <Login></Login>
-    //   <Results></Results> */}
-    //   <Footer></Footer>
-    // </div>
-    <>
+    <ApolloProvider client={client}>
+    
       <HomePage></HomePage>
-    </>
+
+    </ApolloProvider>
+    
   )
 }
 
