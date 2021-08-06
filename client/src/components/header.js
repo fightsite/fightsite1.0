@@ -6,7 +6,7 @@ function Header(userBalance) {
     return (
         <div className="header-div">
             <div className="user-info-inside">
-                <h2>Username</h2>
+                <h2>{userBalance.userBalance.username}</h2>
                 <h2>Balance: {userBalance.userBalance.balance}</h2>
             </div>
             <div className="header-inside">
